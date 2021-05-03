@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : Controller
 {
 	[SerializeField] private GridOverlayBehavior overlay;
 	[SerializeField] private GameObject turnIndicator;
@@ -44,13 +44,4 @@ public class PlayerController : MonoBehaviour
 		}
 	}
 
-	string GetTargetTag(string tag)
-	{
-		return "";
-	}
-
-	string GetSeekerTag(string tag)
-	{
-		return "";
-	}
 }
