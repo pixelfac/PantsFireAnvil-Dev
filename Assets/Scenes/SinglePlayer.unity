@@ -164,10 +164,10 @@ MonoBehaviour:
   pantsAI: {fileID: 1805886269}
   fire: {fileID: 1560982877}
   fireAI: {fileID: 1609624612}
-  victory_screen: {fileID: 1743050676}
-  tie_screen: {fileID: 2004446238}
-  defeat_screen: {fileID: 1932535434}
-  arrow: {fileID: 133283325}
+  victoryScreen: {fileID: 1743050676}
+  drawScreen: {fileID: 2004446238}
+  defeatScreen: {fileID: 1932535434}
+  turnIndicator: {fileID: 133283325}
 --- !u!114 &41110464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -425,7 +425,7 @@ GameObject:
   - component: {fileID: 133283327}
   - component: {fileID: 133283326}
   m_Layer: 5
-  m_Name: arrow
+  m_Name: TurnIndicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13578,7 +13578,7 @@ GameObject:
   - component: {fileID: 2004446241}
   - component: {fileID: 2004446240}
   m_Layer: 5
-  m_Name: Tie Screen
+  m_Name: Draw Screen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
