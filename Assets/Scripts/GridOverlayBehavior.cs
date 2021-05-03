@@ -6,11 +6,11 @@ using UnityEngine.Tilemaps;
 public class GridOverlayBehavior : MonoBehaviour
 {
 
-	public Tile greyOverlay, greenOverlay;
-	public Tilemap overlayTilemap, obstacleTilemap;
-	public GameObject GridOwner;
+	[SerializeField] private Tile greyOverlay, greenOverlay;
+	[SerializeField] private Tilemap overlayTilemap, obstacleTilemap;
+	[SerializeField] private GameObject GridOwner;
+	[SerializeField] private GameObject pants, fire, anvil, pantsAI, fireAI, anvilAI;
 	Grid2D grid;
-	public GameObject pants, fire, anvil, pantsAI, fireAI, anvilAI;
 	Vector3Int[] positions = new Vector3Int[4];
 
 	
