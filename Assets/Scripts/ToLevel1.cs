@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class ToLevel1 : MonoBehaviour
 {
-    public void ToLevelOne()
-    {
-        SceneManager.LoadScene("Level 1");
-    }
+	public void ToLevelOne()
+	{
+		SceneManager.LoadScene("Level 1");
+	}
 }

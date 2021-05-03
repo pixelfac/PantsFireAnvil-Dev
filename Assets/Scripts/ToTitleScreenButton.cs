@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class ToTitleScreenButton : MonoBehaviour
 {
-    public void ToTitleScreen()
-    {
-        SceneManager.LoadScene("Title Screen");
-    }
+	public void ToTitleScreen()
+	{
+		SceneManager.LoadScene("Title Screen");
+	}
 }
