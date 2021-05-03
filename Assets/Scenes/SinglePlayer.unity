@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 41110463}
   - component: {fileID: 41110466}
   m_Layer: 0
-  m_Name: GameMaster
+  m_Name: TurnManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -307,8 +307,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 821671a4052c935418b25bdad381fa59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  greyOverlay: {fileID: 11400000, guid: 70407fce32179f44cb19dcab5b0da7b2, type: 2}
-  greenOverlay: {fileID: 11400000, guid: 0de0b56acf3f36a4aae23c649989a6d9, type: 2}
+  greyOverlay: {fileID: 11400000, guid: 0de0b56acf3f36a4aae23c649989a6d9, type: 2}
+  greenOverlay: {fileID: 11400000, guid: 70407fce32179f44cb19dcab5b0da7b2, type: 2}
   overlayTilemap: {fileID: 1156618444}
   obstacleTilemap: {fileID: 1084468797}
   GridOwner: {fileID: 153522069}
