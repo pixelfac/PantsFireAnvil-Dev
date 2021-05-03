@@ -4,23 +4,7 @@ using UnityEngine;
 
 public class EnemyController : Controller
 {
-	[SerializeField] private GridOverlayBehavior overlay;
-	[SerializeField] private GameObject turnIndicator;
-	[SerializeField] private AudioSource audioManager;
-	string tag;
-
-	//target is the object which this object wants to target
-	//seeker is the object which is targeting this object
-	private GameObject target, seeker;
-
-	private void Awake()
-	{
-		tag = gameObject.tag;
-		target = GameObject.FindGameObjectWithTag(GetTargetTag(tag));
-		seeker = GameObject.FindGameObjectWithTag(GetSeekerTag(tag));
-	}
-
-	public IEnumerator EnemyTurn()
+	public override IEnumerator Turn()
 	{
 		yield return new WaitForSeconds(0.5f);
 		GetComponent<Pathfinding2D>().FindPath(gameObject, target.transform.position);

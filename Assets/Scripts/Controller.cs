@@ -2,8 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Controller : MonoBehaviour
+public abstract class Controller : MonoBehaviour
 {
+	[SerializeField] protected GameObject turnIndicator;
+	[SerializeField] protected AudioSource audioManager;
+	protected string tag;
+
+	//target is the object which this object wants to target
+	//seeker is the object which is targeting this object
+	protected GameObject target, seeker;
+
+	protected void Awake()
+	{
+		tag = gameObject.tag;
+		target = GameObject.FindGameObjectWithTag(GetTargetTag(tag));
+		seeker = GameObject.FindGameObjectWithTag(GetSeekerTag(tag));
+	}
+
+	public abstract IEnumerator Turn();
+
 	//returns tag of the target being targeted by the invoker
 	protected string GetTargetTag(string tag)
 	{

@@ -5,23 +5,8 @@ using UnityEngine;
 public class PlayerController : Controller
 {
 	[SerializeField] private GridOverlayBehavior overlay;
-	[SerializeField] private GameObject turnIndicator;
-	[SerializeField] private AudioSource audioManager;
-	string tag;
 
-	//target is the object which this object wants to target
-	//seeker is the object which is targeting this object
-	private GameObject target, seeker;
-
-	private void Awake()
-	{
-		tag = gameObject.tag;
-		target = GameObject.FindGameObjectWithTag(GetTargetTag(tag));
-		seeker = GameObject.FindGameObjectWithTag(GetSeekerTag(tag));
-	}
-
-
-	public IEnumerator PlayerTurn()
+	public override IEnumerator Turn()
 	{
 		overlay.showPlayerMovementArea(transform.position, gameObject);
 		yield return StartCoroutine(overlay.waitForClick(playerPos =>
