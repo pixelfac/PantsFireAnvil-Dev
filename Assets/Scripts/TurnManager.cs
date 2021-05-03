@@ -8,11 +8,13 @@ public class TurnManager : MonoBehaviour
 {
 	GameState state;
 
-	public Vector3 anvilStartLoc, anvilAIStartLoc, pantsStartLoc, pantsAIStartLoc, fireStartLoc, fireAIStartLoc;
+	[SerializeField] private Vector3 anvilStartLoc, anvilAIStartLoc, pantsStartLoc, pantsAIStartLoc, fireStartLoc, fireAIStartLoc;
+	[SerializeField] private GridOverlayBehavior overlay;
+
 	//character elements
-	public GameObject anvil, anvilAI, pants, pantsAI, fire, fireAI;
+	[SerializeField] private GameObject anvil, anvilAI, pants, pantsAI, fire, fireAI;
 	//UI elements
-	public GameObject victoryScreen, drawScreen, defeatScreen, turnIndicator;
+	[SerializeField] private GameObject victoryScreen, drawScreen, defeatScreen, turnIndicator;
 
 
 	void Start()
@@ -137,7 +139,6 @@ public class TurnManager : MonoBehaviour
 
 	public IEnumerator PlayerTurn(GameObject seeker, GameObject target, GameObject third)
 	{
-		GridOverlayBehavior overlay = GetComponent<GridOverlayBehavior>();
 		overlay.showPlayerMovementArea(seeker.transform.position, seeker);
 		yield return StartCoroutine(overlay.waitForClick(playerPos =>
 		{
