@@ -12,21 +12,21 @@ public class TurnManager : MonoBehaviour
     //character elements
     public GameObject anvil, anvilAI, pants, pantsAI, fire, fireAI;
     //UI elements
-    public GameObject victory_screen, tie_screen, defeat_screen, arrow;
+    public GameObject victoryScreen, drawScreen, defeatScreen, turnIndicator;
 
 
     void Start()
     {
         Time.timeScale = 1f;
         LevelSetup();
-        StartCoroutine(IntroAnimations());
+        StartCoroutine(Sleep(0.5f));
         NextTurn();
     }
 
 
-    IEnumerator IntroAnimations()
+    IEnumerator Sleep(float time)
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(time);
     }
 
 
@@ -42,9 +42,9 @@ public class TurnManager : MonoBehaviour
         fireAI.transform.position = fireAIStartLoc;
 
         //turn all endgame UI off
-        victory_screen.gameObject.SetActive(false);
-        tie_screen.gameObject.SetActive(false);
-        defeat_screen.gameObject.SetActive(false);
+        victoryScreen.gameObject.SetActive(false);
+        drawScreen.gameObject.SetActive(false);
+        defeatScreen.gameObject.SetActive(false);
 
         state = GameState.PANTS_TURN;
 
@@ -53,7 +53,7 @@ public class TurnManager : MonoBehaviour
 
     public void NextTurn()
     {
-        IntroAnimations();
+        Sleep(0.5f);
         checkWinCondition();
 
         switch (state)
@@ -63,7 +63,7 @@ public class TurnManager : MonoBehaviour
                 if (pants.GetComponent<Entity>().Get())
                 {
                     StartCoroutine(PlayerTurn(pants, anvilAI, fireAI));
-                    arrow.transform.position = pants.transform.position + Vector3.up;
+                    turnIndicator.transform.position = pants.transform.position + Vector3.up;
                 }
                 else NextTurn();
                 break;
@@ -73,7 +73,7 @@ public class TurnManager : MonoBehaviour
                 if (pantsAI.GetComponent<Entity>().Get())
                 {
                     StartCoroutine(EnemyTurn(pantsAI, anvil, fire));
-                    arrow.transform.position = pantsAI.transform.position + Vector3.up;
+                    turnIndicator.transform.position = pantsAI.transform.position + Vector3.up;
                 }
                 else NextTurn();
                 break;
@@ -83,7 +83,7 @@ public class TurnManager : MonoBehaviour
                 if (fire.GetComponent<Entity>().Get())
                 {
                     StartCoroutine(PlayerTurn(fire, pantsAI, anvilAI));
-                    arrow.transform.position = fire.transform.position + Vector3.up;
+                    turnIndicator.transform.position = fire.transform.position + Vector3.up;
                 }
                 else NextTurn();
                 break;
@@ -93,7 +93,7 @@ public class TurnManager : MonoBehaviour
                 if (fireAI.GetComponent<Entity>().Get())
                 {
                     StartCoroutine(EnemyTurn(fireAI, pants, anvil));
-                    arrow.transform.position = fireAI.transform.position + Vector3.up;
+                    turnIndicator.transform.position = fireAI.transform.position + Vector3.up;
                 }
                 else NextTurn();
                 break;
@@ -103,7 +103,7 @@ public class TurnManager : MonoBehaviour
                 if (anvil.GetComponent<Entity>().Get())
                 {
                     StartCoroutine(PlayerTurn(anvil, fireAI, pantsAI));
-                    arrow.transform.position = anvil.transform.position + Vector3.up;
+                    turnIndicator.transform.position = anvil.transform.position + Vector3.up;
                 }
                 else NextTurn();
                 break;
@@ -113,23 +113,23 @@ public class TurnManager : MonoBehaviour
                 if (anvilAI.GetComponent<Entity>().Get())
                 {
                     StartCoroutine(EnemyTurn(anvilAI, fire, pants));
-                    arrow.transform.position = anvilAI.transform.position + Vector3.up;
+                    turnIndicator.transform.position = anvilAI.transform.position + Vector3.up;
                 }
                 else NextTurn();
                 break;
 
             case GameState.VICTORY:
-                victory_screen.SetActive(true);
+                victoryScreen.SetActive(true);
                 Debug.Log("VICTORY");
                 break;
 
             case GameState.DEFEAT:
-                defeat_screen.SetActive(true);
+                defeatScreen.SetActive(true);
                 Debug.Log("DEFEAT");
                 break;
 
             case GameState.TIE:
-                tie_screen.SetActive(true);
+                drawScreen.SetActive(true);
                 Debug.Log("TIE");
                 break;
         }
@@ -142,7 +142,7 @@ public class TurnManager : MonoBehaviour
         yield return StartCoroutine(overlay.waitForClick(playerPos =>
         {
             seeker.transform.position = playerPos;
-            arrow.transform.position = playerPos + Vector3.up;
+            turnIndicator.transform.position = playerPos + Vector3.up;
         }));
         yield return new WaitForSeconds(0.5f);
         if (seeker != null && target != null && seeker.transform.position.x == target.transform.position.x && seeker.transform.position.y == target.transform.position.y) //if crush
@@ -170,7 +170,7 @@ public class TurnManager : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         seeker.GetComponent<Pathfinding2D>().FindPath(seeker, target.transform.position, pants, fire, anvil);
         seeker.transform.position = seeker.GetComponent<Pathfinding2D>().GridOwner.GetComponent<Grid2D>().path[0].worldPosition;
-        arrow.transform.position = seeker.GetComponent<Pathfinding2D>().GridOwner.GetComponent<Grid2D>().path[0].worldPosition + Vector3.up;
+        turnIndicator.transform.position = seeker.GetComponent<Pathfinding2D>().GridOwner.GetComponent<Grid2D>().path[0].worldPosition + Vector3.up;
         yield return new WaitForSeconds(0.5f);
         if (seeker.transform.position.x == target.transform.position.x && seeker.transform.position.y == target.transform.position.y) //if crush
         {
