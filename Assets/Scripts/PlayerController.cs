@@ -7,8 +7,11 @@ public class PlayerController : Controller
 	[SerializeField] private GridOverlayBehavior overlay;
 	[SerializeField] private GameObject turnIndicator;
 	[SerializeField] private AudioSource audioManager;
-	private GameObject target, seeker;
 	string tag;
+
+	//target is the object which this object wants to target
+	//seeker is the object which is targeting this object
+	private GameObject target, seeker;
 
 	private void Awake()
 	{
