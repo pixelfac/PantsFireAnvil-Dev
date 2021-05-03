@@ -169,7 +169,7 @@ public class TurnManager : MonoBehaviour
 	public IEnumerator EnemyTurn(GameObject seeker,GameObject target, GameObject third)
 	{
 		yield return new WaitForSeconds(0.5f);
-		seeker.GetComponent<Pathfinding2D>().FindPath(seeker, target.transform.position, pants, fire, anvil);
+		seeker.GetComponent<Pathfinding2D>().FindPath(seeker, target.transform.position);
 		seeker.transform.position = seeker.GetComponent<Pathfinding2D>().GridOwner.GetComponent<Grid2D>().path[0].worldPosition;
 		turnIndicator.transform.position = seeker.GetComponent<Pathfinding2D>().GridOwner.GetComponent<Grid2D>().path[0].worldPosition + Vector3.up;
 		yield return new WaitForSeconds(0.5f);

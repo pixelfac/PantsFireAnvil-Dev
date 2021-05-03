@@ -18,7 +18,7 @@ public class Pathfinding2D : MonoBehaviour
 	}
 
 
-	public void FindPath(GameObject seeker, Vector3 targetPos, GameObject pants, GameObject fire, GameObject anvil)
+	public void FindPath(GameObject seeker, Vector3 targetPos)
 	{
 		Vector3 seekerPos = seeker.transform.position;
 
@@ -59,9 +59,9 @@ public class Pathfinding2D : MonoBehaviour
 			foreach (Node2D neighbour in grid.GetNeighbors(node))
 			{
 				if (neighbour.obstacle || closedSet.Contains(neighbour) ||
-					(seeker.name.Equals("Pants AI") && neighbour.worldPosition == pants.transform.position) ||
-					(seeker.name.Equals("Fire AI") && neighbour.worldPosition == fire.transform.position) ||
-					(seeker.name.Equals("Anvil AI") && neighbour.worldPosition == anvil.transform.position))
+					(seeker.tag.Equals("Pants") && neighbour.worldPosition == GameObject.FindGameObjectWithTag("Pants").transform.position) ||
+					(seeker.tag.Equals("Fire") && neighbour.worldPosition == GameObject.FindGameObjectWithTag("Fire").transform.position) ||
+					(seeker.tag.Equals("Anvil") && neighbour.worldPosition == GameObject.FindGameObjectWithTag("Anvil").transform.position))
 				{
 					continue;
 				}
