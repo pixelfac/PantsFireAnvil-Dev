@@ -10,18 +10,9 @@ public class GridOverlayBehavior : MonoBehaviour
 	[SerializeField] private Tilemap overlayTilemap, obstacleTilemap;
 	[SerializeField] private GameObject GridOwner;
 	[SerializeField] private GameObject pants, fire, anvil, pantsAI, fireAI, anvilAI;
-	Grid2D grid;
 	Vector3Int[] positions = new Vector3Int[4];
 
 	
-
-	void Awake()
-	{
-		//Instantiate grid
-		grid = GridOwner.GetComponent<Grid2D>();
-	}
-
-
 	//overlays in green the tiles that the character can move to
 	//and adds that world position to an array for later checking in method:waitForClick()
 	public void showPlayerMovementArea(Vector3 position, GameObject obj)
