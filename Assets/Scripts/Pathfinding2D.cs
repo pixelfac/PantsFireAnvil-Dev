@@ -59,9 +59,9 @@ public class Pathfinding2D : MonoBehaviour
 			foreach (Node2D neighbour in grid.GetNeighbors(node))
 			{
 				if (neighbour.obstacle || closedSet.Contains(neighbour) ||
-					(seeker.tag.Equals("Pants") && neighbour.worldPosition == GameObject.FindGameObjectWithTag("Pants").transform.position) ||
-					(seeker.tag.Equals("Fire") && neighbour.worldPosition == GameObject.FindGameObjectWithTag("Fire").transform.position) ||
-					(seeker.tag.Equals("Anvil") && neighbour.worldPosition == GameObject.FindGameObjectWithTag("Anvil").transform.position))
+					(seeker.CompareTag("Pants") && neighbour.worldPosition == GameObject.FindGameObjectWithTag("Pants").transform.position) ||
+					(seeker.CompareTag("Fire") && neighbour.worldPosition == GameObject.FindGameObjectWithTag("Fire").transform.position) ||
+					(seeker.CompareTag("Anvil") && neighbour.worldPosition == GameObject.FindGameObjectWithTag("Anvil").transform.position))
 				{
 					continue;
 				}

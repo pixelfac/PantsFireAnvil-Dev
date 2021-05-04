@@ -9,7 +9,6 @@ public class TurnManager : MonoBehaviour
 	GameState state;
 
 	[SerializeField] private Vector3 anvilStartLoc, anvilAIStartLoc, pantsStartLoc, pantsAIStartLoc, fireStartLoc, fireAIStartLoc;
-	[SerializeField] private GridOverlayBehavior overlay;
 
 	//character elements
 	[SerializeField] private GameObject anvil, anvilAI, pants, pantsAI, fire, fireAI;
@@ -55,7 +54,7 @@ public class TurnManager : MonoBehaviour
 
 	public void NextTurn()
 	{
-		Sleep(0.5f);
+		StartCoroutine(Sleep(0.5f));
 		checkWinCondition();
 
 		switch (state)
@@ -64,60 +63,60 @@ public class TurnManager : MonoBehaviour
 				state = GameState.PANTSAI_TURN;
 				if (pants.GetComponent<Entity>().Get())
 				{
-					StartCoroutine(PlayerTurn(pants, anvilAI, fireAI));
+					StartCoroutine(pants.GetComponent<PlayerController>().Turn());
 					turnIndicator.transform.position = pants.transform.position + Vector3.up;
 				}
-				else NextTurn();
+				NextTurn();
 				break;
 
 			case GameState.PANTSAI_TURN: //Enemy Turn
 				state = GameState.FIRE_TURN;
 				if (pantsAI.GetComponent<Entity>().Get())
 				{
-					StartCoroutine(EnemyTurn(pantsAI, anvil, fire));
+					StartCoroutine(pantsAI.GetComponent<EnemyController>().Turn());
 					turnIndicator.transform.position = pantsAI.transform.position + Vector3.up;
 				}
-				else NextTurn();
+				NextTurn();
 				break;
 
 			case GameState.FIRE_TURN: //Player Turn
 				state = GameState.FIREAI_TURN;
 				if (fire.GetComponent<Entity>().Get())
 				{
-					StartCoroutine(PlayerTurn(fire, pantsAI, anvilAI));
+					StartCoroutine(fire.GetComponent<PlayerController>().Turn());
 					turnIndicator.transform.position = fire.transform.position + Vector3.up;
 				}
-				else NextTurn();
+				NextTurn();
 				break;
 
 			case GameState.FIREAI_TURN: //Enemy Turn
 				state = GameState.ANVIL_TURN;
 				if (fireAI.GetComponent<Entity>().Get())
 				{
-					StartCoroutine(EnemyTurn(fireAI, pants, anvil));
+					StartCoroutine(fireAI.GetComponent<EnemyController>().Turn());
 					turnIndicator.transform.position = fireAI.transform.position + Vector3.up;
 				}
-				else NextTurn();
+				NextTurn();
 				break;
 
 			case GameState.ANVIL_TURN: //Player Turn
 				state = GameState.ANVILAI_TURN;
 				if (anvil.GetComponent<Entity>().Get())
 				{
-					StartCoroutine(PlayerTurn(anvil, fireAI, pantsAI));
+					StartCoroutine(anvil.GetComponent<PlayerController>().Turn());
 					turnIndicator.transform.position = anvil.transform.position + Vector3.up;
 				}
-				else NextTurn();
+				NextTurn();
 				break;
 
 			case GameState.ANVILAI_TURN: //Enemy Turn
 				state = GameState.PANTS_TURN;
 				if (anvilAI.GetComponent<Entity>().Get())
 				{
-					StartCoroutine(EnemyTurn(anvilAI, fire, pants));
+					StartCoroutine(anvilAI.GetComponent<EnemyController>().Turn());
 					turnIndicator.transform.position = anvilAI.transform.position + Vector3.up;
 				}
-				else NextTurn();
+				NextTurn();
 				break;
 
 			case GameState.VICTORY:
@@ -136,34 +135,6 @@ public class TurnManager : MonoBehaviour
 				break;
 		}
 	}
-
-	public IEnumerator PlayerTurn(GameObject seeker, GameObject target, GameObject third)
-	{
-		overlay.showPlayerMovementArea(seeker.transform.position, seeker);
-		yield return StartCoroutine(overlay.waitForClick(playerPos =>
-		{
-			seeker.transform.position = playerPos;
-			turnIndicator.transform.position = playerPos + Vector3.up;
-		}));
-		yield return new WaitForSeconds(0.5f);
-		if (seeker != null && target != null && seeker.transform.position.x == target.transform.position.x && seeker.transform.position.y == target.transform.position.y) //if crush
-		{
-			target.transform.position = new Vector3( 0, 20, 0);
-			target.GetComponent<Entity>().Set(false);
-			GetComponent<AudioSource>().Play();
-		}
-		if (seeker.transform.position.x == third.transform.position.x && seeker.transform.position.y == third.transform.position.y) //if crush
-		{
-			seeker.transform.position = new Vector3(0, 20, 0);
-			seeker.GetComponent<Entity>().Set(false);
-			third.transform.position = new Vector3(0, 20, 0);
-			third.GetComponent<Entity>().Set(false);
-			GetComponent<AudioSource>().Play();
-
-		}
-		NextTurn();
-	}
-
 
 
 	public IEnumerator EnemyTurn(GameObject seeker,GameObject target, GameObject third)

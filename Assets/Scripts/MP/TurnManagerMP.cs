@@ -55,7 +55,7 @@ public class TurnManagerMP : MonoBehaviour
 
     public void NextTurn()
     {
-        IntroAnimations();
+        StartCoroutine(IntroAnimations());
         checkWinCondition();
 
         switch (state)
