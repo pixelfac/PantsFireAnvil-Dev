@@ -4,18 +4,9 @@ using UnityEngine;
 
 public class CursorTracker : MonoBehaviour
 {
-	
-
-	// Start is called before the first frame update
-	void Start()
-	{
-		
-	}
-
 	// Update is called once per frame
 	void Update()
 	{
-
 		//moves CursorTracker object to follow the cursor while staying locked to the grid
 		Vector3 mousePos = new Vector3((int)Input.mousePosition.x, (int)Input.mousePosition.y, 1f);
 		mousePos = Camera.main.ScreenToWorldPoint(mousePos);
