@@ -66,7 +66,7 @@ public class TurnManager : MonoBehaviour
 					StartCoroutine(pants.GetComponent<PlayerController>().Turn());
 					turnIndicator.transform.position = pants.transform.position + Vector3.up;
 				}
-				NextTurn();
+				//NextTurn();
 				break;
 
 			case GameState.PANTSAI_TURN: //Enemy Turn
@@ -76,7 +76,7 @@ public class TurnManager : MonoBehaviour
 					StartCoroutine(pantsAI.GetComponent<EnemyController>().Turn());
 					turnIndicator.transform.position = pantsAI.transform.position + Vector3.up;
 				}
-				NextTurn();
+				//NextTurn();
 				break;
 
 			case GameState.FIRE_TURN: //Player Turn
@@ -86,7 +86,7 @@ public class TurnManager : MonoBehaviour
 					StartCoroutine(fire.GetComponent<PlayerController>().Turn());
 					turnIndicator.transform.position = fire.transform.position + Vector3.up;
 				}
-				NextTurn();
+				//NextTurn();
 				break;
 
 			case GameState.FIREAI_TURN: //Enemy Turn
@@ -96,7 +96,7 @@ public class TurnManager : MonoBehaviour
 					StartCoroutine(fireAI.GetComponent<EnemyController>().Turn());
 					turnIndicator.transform.position = fireAI.transform.position + Vector3.up;
 				}
-				NextTurn();
+				//NextTurn();
 				break;
 
 			case GameState.ANVIL_TURN: //Player Turn
@@ -106,7 +106,7 @@ public class TurnManager : MonoBehaviour
 					StartCoroutine(anvil.GetComponent<PlayerController>().Turn());
 					turnIndicator.transform.position = anvil.transform.position + Vector3.up;
 				}
-				NextTurn();
+				//NextTurn();
 				break;
 
 			case GameState.ANVILAI_TURN: //Enemy Turn
@@ -116,7 +116,7 @@ public class TurnManager : MonoBehaviour
 					StartCoroutine(anvilAI.GetComponent<EnemyController>().Turn());
 					turnIndicator.transform.position = anvilAI.transform.position + Vector3.up;
 				}
-				NextTurn();
+				//NextTurn();
 				break;
 
 			case GameState.VICTORY:
@@ -134,34 +134,6 @@ public class TurnManager : MonoBehaviour
 				Debug.Log("TIE");
 				break;
 		}
-	}
-
-
-	public IEnumerator EnemyTurn(GameObject seeker,GameObject target, GameObject third)
-	{
-		yield return new WaitForSeconds(0.5f);
-		seeker.GetComponent<Pathfinding2D>().FindPath(seeker, target.transform.position);
-		seeker.transform.position = seeker.GetComponent<Pathfinding2D>().GridOwner.GetComponent<Grid2D>().path[0].worldPosition;
-		turnIndicator.transform.position = seeker.GetComponent<Pathfinding2D>().GridOwner.GetComponent<Grid2D>().path[0].worldPosition + Vector3.up;
-		yield return new WaitForSeconds(0.5f);
-		if (seeker.transform.position.x == target.transform.position.x && seeker.transform.position.y == target.transform.position.y) //if crush
-		{
-			target.transform.position = new Vector3(0, 20, 0);
-			target.GetComponent<Entity>().Set(false);
-			seeker.transform.position = new Vector3(0, 20, 0);
-			seeker.GetComponent<Entity>().Set(false);
-			GetComponent<AudioSource>().Play();
-
-		}
-		if (seeker.transform.position.x == third.transform.position.x && seeker.transform.position.y == third.transform.position.y) //if crush
-		{
-			seeker.transform.position = new Vector3(0, 20, 0);
-			seeker.GetComponent<Entity>().Set(false);
-			GetComponent<AudioSource>().Play();
-
-		}
-		NextTurn();
-
 	}
 
 
