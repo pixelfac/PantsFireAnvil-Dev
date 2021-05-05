@@ -56,11 +56,11 @@ public abstract class Controller : MonoBehaviour
 			case "AnvilAI":
 				return "Pants";
 			case "Pants":
-				return "AnvilAI";
-			case "Fire":
-				return "PantsAI";
-			case "Anvil":
 				return "FireAI";
+			case "Fire":
+				return "AnvilAI";
+			case "Anvil":
+				return "PantsAI";
 			default:
 				Debug.Log("GetSeekerTag(): Tag not found");
 				return null;

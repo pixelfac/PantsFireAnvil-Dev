@@ -13,7 +13,6 @@ public class EnemyController : Controller
 		yield return new WaitForSeconds(0.5f);
 		if (transform.position.x == target.transform.position.x && transform.position.y == target.transform.position.y) //if crush
 		{
-			Debug.Log("Murder");
 			target.transform.position = new Vector3(0, 20, 0);
 			target.GetComponent<Entity>().SetAlive(false);
 			transform.position = new Vector3(0, 20, 0);
@@ -22,7 +21,6 @@ public class EnemyController : Controller
 		}
 		if (transform.position.x == seeker.transform.position.x && transform.position.y == seeker.transform.position.y) //if is crushed
 		{
-			Debug.Log("Suicide");
 			transform.position = new Vector3(0, 20, 0);
 			GetComponent<Entity>().SetAlive(false);
 			audioManager.Play();
