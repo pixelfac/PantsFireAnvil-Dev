@@ -26,12 +26,18 @@ public abstract class Controller : MonoBehaviour
 	{
 		switch (tag)
 		{
-			case "Pants":
+			case "PantsAI":
 				return "Anvil";
-			case "Fire":
+			case "FireAI":
 				return "Pants";
-			case "Anvil":
+			case "AnvilAI":
 				return "Fire";
+			case "Pants":
+				return "AnvilAI";
+			case "Fire":
+				return "PantsAI";
+			case "Anvil":
+				return "FireAI";
 			default:
 				Debug.Log("GetTargetTag(): Tag not found");
 				return null;
@@ -43,12 +49,18 @@ public abstract class Controller : MonoBehaviour
 	{
 		switch (tag)
 		{
-			case "Pants":
+			case "PantsAI":
 				return "Fire";
-			case "Fire":
+			case "FireAI":
 				return "Anvil";
-			case "Anvil":
+			case "AnvilAI":
 				return "Pants";
+			case "Pants":
+				return "AnvilAI";
+			case "Fire":
+				return "PantsAI";
+			case "Anvil":
+				return "FireAI";
 			default:
 				Debug.Log("GetSeekerTag(): Tag not found");
 				return null;
