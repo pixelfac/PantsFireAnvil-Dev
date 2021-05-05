@@ -25,5 +25,6 @@ public class EnemyController : Controller
 			GetComponent<Entity>().Set(false);
 			audioManager.Play();
 		}
+		Debug.Log("End of Turn()");
 	}
 }

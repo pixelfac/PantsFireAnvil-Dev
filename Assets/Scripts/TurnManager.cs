@@ -2,7 +2,7 @@
 using UnityEngine;
 using Debug = UnityEngine.Debug;
 
-public enum GameState { ANVIL_TURN,  ANVILAI_TURN,  PANTS_TURN,  PANTSAI_TURN,  FIRE_TURN,  FIREAI_TURN,  VICTORY,  DEFEAT,  TIE }
+public enum GameState { ANVIL_TURN, ANVILAI_TURN, PANTS_TURN, PANTSAI_TURN, FIRE_TURN, FIREAI_TURN, VICTORY, DEFEAT, TIE }
 
 public class TurnManager : MonoBehaviour
 {
@@ -61,62 +61,33 @@ public class TurnManager : MonoBehaviour
 		{
 			case GameState.PANTS_TURN: //Player Turn
 				state = GameState.PANTSAI_TURN;
-				if (pants.GetComponent<Entity>().Get())
-				{
-					StartCoroutine(pants.GetComponent<PlayerController>().Turn());
-					turnIndicator.transform.position = pants.transform.position + Vector3.up;
-				}
-				//NextTurn();
+				StartCoroutine(Turn(pants.GetComponent<PlayerController>()));
+
 				break;
 
 			case GameState.PANTSAI_TURN: //Enemy Turn
 				state = GameState.FIRE_TURN;
-				if (pantsAI.GetComponent<Entity>().Get())
-				{
-					StartCoroutine(pantsAI.GetComponent<EnemyController>().Turn());
-					turnIndicator.transform.position = pantsAI.transform.position + Vector3.up;
-				}
-				//NextTurn();
+				StartCoroutine(Turn(pantsAI.GetComponent<EnemyController>()));
 				break;
 
 			case GameState.FIRE_TURN: //Player Turn
 				state = GameState.FIREAI_TURN;
-				if (fire.GetComponent<Entity>().Get())
-				{
-					StartCoroutine(fire.GetComponent<PlayerController>().Turn());
-					turnIndicator.transform.position = fire.transform.position + Vector3.up;
-				}
-				//NextTurn();
+				StartCoroutine(Turn(fire.GetComponent<PlayerController>()));
 				break;
 
 			case GameState.FIREAI_TURN: //Enemy Turn
 				state = GameState.ANVIL_TURN;
-				if (fireAI.GetComponent<Entity>().Get())
-				{
-					StartCoroutine(fireAI.GetComponent<EnemyController>().Turn());
-					turnIndicator.transform.position = fireAI.transform.position + Vector3.up;
-				}
-				//NextTurn();
+				StartCoroutine(Turn(fireAI.GetComponent<EnemyController>()));
 				break;
 
 			case GameState.ANVIL_TURN: //Player Turn
 				state = GameState.ANVILAI_TURN;
-				if (anvil.GetComponent<Entity>().Get())
-				{
-					StartCoroutine(anvil.GetComponent<PlayerController>().Turn());
-					turnIndicator.transform.position = anvil.transform.position + Vector3.up;
-				}
-				//NextTurn();
+				StartCoroutine(Turn(anvil.GetComponent<PlayerController>()));
 				break;
 
 			case GameState.ANVILAI_TURN: //Enemy Turn
 				state = GameState.PANTS_TURN;
-				if (anvilAI.GetComponent<Entity>().Get())
-				{
-					StartCoroutine(anvilAI.GetComponent<EnemyController>().Turn());
-					turnIndicator.transform.position = anvilAI.transform.position + Vector3.up;
-				}
-				//NextTurn();
+				StartCoroutine(Turn(anvilAI.GetComponent<EnemyController>()));
 				break;
 
 			case GameState.VICTORY:
@@ -137,7 +108,6 @@ public class TurnManager : MonoBehaviour
 	}
 
 
-
 	public void checkWinCondition()
 	{
 		//called at the end of every turn method
@@ -145,27 +115,33 @@ public class TurnManager : MonoBehaviour
 		int winCount = 0;
 		int loseCount = 0;
 		int total = 0;
-		if (pants.GetComponent<Entity>().Get()) {
+		if (pants.GetComponent<Entity>().Get())
+		{
 			winCount++;
 			total++;
 		}
-		if (pantsAI.GetComponent<Entity>().Get()) {
+		if (pantsAI.GetComponent<Entity>().Get())
+		{
 			loseCount++;
 			total++;
 		}
-		if (fire.GetComponent<Entity>().Get()) {
+		if (fire.GetComponent<Entity>().Get())
+		{
 			winCount++;
 			total++;
 		}
-		if (fireAI.GetComponent<Entity>().Get()) {
+		if (fireAI.GetComponent<Entity>().Get())
+		{
 			loseCount++;
 			total++;
 		}
-		if (anvil.GetComponent<Entity>().Get()) {
+		if (anvil.GetComponent<Entity>().Get())
+		{
 			winCount++;
 			total++;
 		}
-		if (anvilAI.GetComponent<Entity>().Get()) {
+		if (anvilAI.GetComponent<Entity>().Get())
+		{
 			loseCount++;
 			total++;
 		}
@@ -183,10 +159,6 @@ public class TurnManager : MonoBehaviour
 			state = GameState.VICTORY;
 			return;
 		}
-		Debug.Log("wincount: " + winCount);
-		Debug.Log("losecount: " + loseCount);
-		Debug.Log("total: " + total);
-
 
 		//if enough players still remain, NO CHANGE
 		if (winCount > 1 && loseCount > 1) return;
@@ -205,5 +177,15 @@ public class TurnManager : MonoBehaviour
 
 	}
 
-
+	private IEnumerator Turn(Controller controller)
+	{
+		Debug.Log("Start Actor Coroutine");
+		if (pants.GetComponent<Entity>().Get())
+		{
+			yield return StartCoroutine(controller.Turn());
+			turnIndicator.transform.position = controller.gameObject.transform.position + Vector3.up;
+		}
+		Debug.Log("Next Turn is called");
+		NextTurn();
+	}
 }

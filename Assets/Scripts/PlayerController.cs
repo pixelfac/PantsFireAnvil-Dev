@@ -30,6 +30,7 @@ public class PlayerController : Controller
 			audioManager.Play();
 
 		}
+		Debug.Log("End of Turn()");
 	}
 
 }
