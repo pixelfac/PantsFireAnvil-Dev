@@ -6,7 +6,7 @@ public abstract class Controller : MonoBehaviour
 {
 	[SerializeField] protected GameObject turnIndicator;
 	[SerializeField] protected AudioSource audioManager;
-	protected string tag;
+	protected string IDtag;
 
 	//target is the object which this object wants to target
 	//seeker is the object which is targeting this object
@@ -14,9 +14,9 @@ public abstract class Controller : MonoBehaviour
 
 	protected void Awake()
 	{
-		tag = gameObject.tag;
-		target = GameObject.FindGameObjectWithTag(GetTargetTag(tag));
-		seeker = GameObject.FindGameObjectWithTag(GetSeekerTag(tag));
+		IDtag = gameObject.tag;
+		target = GameObject.FindGameObjectWithTag(GetTargetTag(IDtag));
+		seeker = GameObject.FindGameObjectWithTag(GetSeekerTag(IDtag));
 	}
 
 	public abstract IEnumerator Turn();
