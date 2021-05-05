@@ -19,7 +19,7 @@ public abstract class Controller : MonoBehaviour
 		seeker = GameObject.FindGameObjectWithTag(GetSeekerTag(IDtag));
 	}
 
-	public abstract IEnumerator Turn();
+	public abstract IEnumerator Turn(System.Action callback);
 
 	//returns tag of the target being targeted by the invoker
 	protected string GetTargetTag(string tag)

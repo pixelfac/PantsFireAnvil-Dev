@@ -6,12 +6,12 @@ public class Entity : MonoBehaviour
 {
 	public bool Alive = true;
 
-	public void Set(bool param)
+	public void SetAlive(bool param)
 	{
 		Alive = param;
 	}
 
-	public bool Get()
+	public bool IsAlive()
 	{
 		return Alive;
 	}

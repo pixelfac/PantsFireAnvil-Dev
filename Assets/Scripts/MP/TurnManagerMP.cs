@@ -62,7 +62,7 @@ public class TurnManagerMP : MonoBehaviour
         {
             case GameStateMP.PANTS_BLUE: //Blu Turn
                 state = GameStateMP.PANTS_RED;
-                if (pantsBlu.GetComponent<Entity>().Get())
+                if (pantsBlu.GetComponent<Entity>().IsAlive())
                 {
                     StartCoroutine(PlayerTurn(pantsBlu, anvilRed, fireRed));
                     arrow.transform.position = pantsBlu.transform.position + Vector3.up;
@@ -73,7 +73,7 @@ public class TurnManagerMP : MonoBehaviour
 
             case GameStateMP.PANTS_RED: //Red Turn
                 state = GameStateMP.FIRE_BLUE;
-                if (pantsRed.GetComponent<Entity>().Get())
+                if (pantsRed.GetComponent<Entity>().IsAlive())
                 {
                     StartCoroutine(PlayerTurn(pantsRed, anvilBlu, fireBlu));
                     arrow.transform.position = pantsRed.transform.position + Vector3.up;
@@ -84,7 +84,7 @@ public class TurnManagerMP : MonoBehaviour
 
             case GameStateMP.FIRE_BLUE:  //Blu Turn
                 state = GameStateMP.FIRE_RED;
-                if (fireBlu.GetComponent<Entity>().Get())
+                if (fireBlu.GetComponent<Entity>().IsAlive())
                 {
                     StartCoroutine(PlayerTurn(fireBlu, pantsRed, anvilRed));
                     arrow.transform.position = fireBlu.transform.position + Vector3.up;
@@ -95,7 +95,7 @@ public class TurnManagerMP : MonoBehaviour
 
             case GameStateMP.FIRE_RED: //Red Turn
                 state = GameStateMP.ANVIL_BLUE;
-                if (fireRed.GetComponent<Entity>().Get())
+                if (fireRed.GetComponent<Entity>().IsAlive())
                 {
                     StartCoroutine(PlayerTurn(fireRed, pantsBlu, anvilBlu));
                     arrow.transform.position = fireRed.transform.position + Vector3.up;
@@ -106,7 +106,7 @@ public class TurnManagerMP : MonoBehaviour
 
             case GameStateMP.ANVIL_BLUE:  //Blu Turn
                 state = GameStateMP.ANVIL_RED;
-                if (anvilBlu.GetComponent<Entity>().Get())
+                if (anvilBlu.GetComponent<Entity>().IsAlive())
                 {
                     StartCoroutine(PlayerTurn(anvilBlu, fireRed, pantsRed));
                     arrow.transform.position = anvilBlu.transform.position + Vector3.up;
@@ -117,7 +117,7 @@ public class TurnManagerMP : MonoBehaviour
 
             case GameStateMP.ANVIL_RED:  //Red Turn
                 state = GameStateMP.PANTS_BLUE;
-                if (anvilRed.GetComponent<Entity>().Get())
+                if (anvilRed.GetComponent<Entity>().IsAlive())
                 {
                     StartCoroutine(PlayerTurn(anvilRed, fireBlu, pantsBlu));
                     arrow.transform.position = anvilRed.transform.position + Vector3.up;
@@ -157,15 +157,15 @@ public class TurnManagerMP : MonoBehaviour
             if (seeker != null && target != null && seeker.transform.position.x == target.transform.position.x && seeker.transform.position.y == target.transform.position.y) //if crush
             {
                 target.transform.position = new Vector3(0, 20, 0);
-                target.GetComponent<Entity>().Set(false);
+                target.GetComponent<Entity>().SetAlive(false);
                 GetComponent<AudioSource>().Play();
             }
             if (seeker.transform.position.x == third.transform.position.x && seeker.transform.position.y == third.transform.position.y) //if crush
             {
                 seeker.transform.position = new Vector3(0, 20, 0);
-                seeker.GetComponent<Entity>().Set(false);
+                seeker.GetComponent<Entity>().SetAlive(false);
                 third.transform.position = new Vector3(0, 20, 0);
-                third.GetComponent<Entity>().Set(false);
+                third.GetComponent<Entity>().SetAlive(false);
                 GetComponent<AudioSource>().Play();
 
             }
@@ -182,27 +182,27 @@ public class TurnManagerMP : MonoBehaviour
         int bluCount = 0;
         int redCount = 0;
         int total = 0;
-        if (pantsBlu.GetComponent<Entity>().Get()) {
+        if (pantsBlu.GetComponent<Entity>().IsAlive()) {
             bluCount++;
             total++;
         }
-        if (pantsRed.GetComponent<Entity>().Get()) {
+        if (pantsRed.GetComponent<Entity>().IsAlive()) {
             redCount++;
             total++;
         }
-        if (fireBlu.GetComponent<Entity>().Get()) {
+        if (fireBlu.GetComponent<Entity>().IsAlive()) {
             bluCount++;
             total++;
         }
-        if (fireRed.GetComponent<Entity>().Get()) {
+        if (fireRed.GetComponent<Entity>().IsAlive()) {
             redCount++;
             total++;
         }
-        if (anvilBlu.GetComponent<Entity>().Get()) {
+        if (anvilBlu.GetComponent<Entity>().IsAlive()) {
             bluCount++;
             total++;
         }
-        if (anvilRed.GetComponent<Entity>().Get()) {
+        if (anvilRed.GetComponent<Entity>().IsAlive()) {
             redCount++;
             total++;
         }
@@ -232,7 +232,7 @@ public class TurnManagerMP : MonoBehaviour
         if (bluCount == 1 && redCount == 1)
         {
 
-            if ((pantsRed.GetComponent<Entity>().Get() && pantsBlu.GetComponent<Entity>().Get()) || (fireRed.GetComponent<Entity>().Get() && fireBlu.GetComponent<Entity>().Get()) || (anvilRed.GetComponent<Entity>().Get() && anvilBlu.GetComponent<Entity>().Get()))
+            if ((pantsRed.GetComponent<Entity>().IsAlive() && pantsBlu.GetComponent<Entity>().IsAlive()) || (fireRed.GetComponent<Entity>().IsAlive() && fireBlu.GetComponent<Entity>().IsAlive()) || (anvilRed.GetComponent<Entity>().IsAlive() && anvilBlu.GetComponent<Entity>().IsAlive()))
             {
                 state = GameStateMP.TIE;
                 return;
