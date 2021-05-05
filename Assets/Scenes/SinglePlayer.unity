@@ -156,7 +156,6 @@ MonoBehaviour:
   pantsAIStartLoc: {x: 1, y: 2, z: 0}
   fireStartLoc: {x: 6, y: 0, z: 0}
   fireAIStartLoc: {x: 4, y: -2, z: 0}
-  overlay: {fileID: 107063836}
   anvil: {fileID: 650900718}
   anvilAI: {fileID: 128468532}
   pants: {fileID: 142483655}
@@ -250,7 +249,7 @@ GameObject:
   - component: {fileID: 128468537}
   m_Layer: 8
   m_Name: Anvil AI
-  m_TagString: Anvil
+  m_TagString: AnvilAI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9023,7 +9022,7 @@ GameObject:
   - component: {fileID: 1609624617}
   m_Layer: 8
   m_Name: Fire AI
-  m_TagString: Fire
+  m_TagString: FireAI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13240,7 +13239,7 @@ GameObject:
   - component: {fileID: 1805886274}
   m_Layer: 8
   m_Name: Pants AI
-  m_TagString: Pants
+  m_TagString: PantsAI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

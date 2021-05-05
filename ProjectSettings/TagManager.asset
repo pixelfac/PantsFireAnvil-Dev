@@ -7,6 +7,9 @@ TagManager:
   - Pants
   - Fire
   - Anvil
+  - PantsAI
+  - FireAI
+  - AnvilAI
   layers:
   - Default
   - TransparentFX
