@@ -6,17 +6,22 @@ using UnityEngine.Tilemaps;
 public class GridOverlayBehavior : MonoBehaviour
 {
 
-	[SerializeField] private Tile greyOverlay, greenOverlay;
+	[SerializeField] private Tile greyOverlay, greenOverlay, redOverlay;
 	[SerializeField] private Tilemap overlayTilemap, obstacleTilemap;
 	[SerializeField] private GameObject GridOwner;
 	[SerializeField] private GameObject pants, fire, anvil, pantsAI, fireAI, anvilAI;
-	Vector3Int[] positions = new Vector3Int[4];
+	Vector3Int[] positions;
+	Vector3 pos;
 
-	
+
 	//overlays in green the tiles that the character can move to
 	//and adds that world position to an array for later checking in method:waitForClick()
 	public void showPlayerMovementArea(Vector3 position, GameObject obj)
 	{
+		pos = position;
+		positions = new Vector3Int[4];
+
+
 		//if object making the check is pants, avoid allies + avoid pantsAI
 		if (obj == pants)
 		{
@@ -110,44 +115,67 @@ public class GridOverlayBehavior : MonoBehaviour
 		}
 
 	}
-	
+
 	//waits for player to click on viable spot
 	public IEnumerator waitForClick(System.Action<Vector3> playerPos)
 	{
-		bool click = false;
-		while (!click)
+
+		Debug.Log("have arrived");
+		Debug.Log(positions[0]);
+		Debug.Log(positions[1]);
+		Debug.Log(positions[2]);
+		Debug.Log(positions[3]);
+
+		if (positions[0] == positions[1] && positions[0] == positions[2] && positions[0] == positions[3])
 		{
-			//checks to see if player clicked on viable spot
-			//if so, ends coroutine and passes out the location of the new playerPos
-			if (Input.GetMouseButtonDown(0))
-			{
-				Vector3Int pos = Vector3Int.FloorToInt(Camera.main.ScreenToWorldPoint(Input.mousePosition) + new Vector3(-0.5f,0.5f,5.5f));
-				if (pos.Equals(positions[0]))
-				{
-					click = true;
-					playerPos(positions[0] + Vector3.right);
-				}
-				if (pos.Equals(positions[1]))
-				{
-					click = true;
-					playerPos(positions[1] + Vector3.right);
-				}
-				if (pos.Equals(positions[2]))
-				{
-					click = true;
-					playerPos(positions[2] + Vector3.right);
-				}
-				if (pos.Equals(positions[3]))
-				{
-					click = true;
-					playerPos(positions[3] + Vector3.right);
-				}
-			}
-			yield return null;
+			overlayTilemap.SetTile(overlayTilemap.WorldToCell(pos + Vector3.left), redOverlay);
+			overlayTilemap.SetTile(overlayTilemap.WorldToCell(pos + Vector3.right), redOverlay);
+			overlayTilemap.SetTile(overlayTilemap.WorldToCell(pos + Vector3.up), redOverlay);
+			overlayTilemap.SetTile(overlayTilemap.WorldToCell(pos + Vector3.down), redOverlay);
+			yield return new WaitForSeconds(0.5f);
+			overlayTilemap.SetTile(overlayTilemap.WorldToCell(pos + Vector3.left), greyOverlay);
+			overlayTilemap.SetTile(overlayTilemap.WorldToCell(pos + Vector3.right), greyOverlay);
+			overlayTilemap.SetTile(overlayTilemap.WorldToCell(pos + Vector3.up), greyOverlay);
+			overlayTilemap.SetTile(overlayTilemap.WorldToCell(pos + Vector3.down), greyOverlay);
 		}
+		else
+		{
+			bool click = false;
+			while (!click)
+			{
+				//checks to see if player clicked on viable spot
+				//if so, ends coroutine and passes out the location of the new playerPos
+				if (Input.GetMouseButtonDown(0))
+				{
+					Vector3Int pos = Vector3Int.FloorToInt(Camera.main.ScreenToWorldPoint(Input.mousePosition) + new Vector3(-0.5f, 0.5f, 5.5f));
+					if (pos.Equals(positions[0]))
+					{
+						click = true;
+						playerPos(positions[0] + Vector3.right);
+					}
+					if (pos.Equals(positions[1]))
+					{
+						click = true;
+						playerPos(positions[1] + Vector3.right);
+					}
+					if (pos.Equals(positions[2]))
+					{
+						click = true;
+						playerPos(positions[2] + Vector3.right);
+					}
+					if (pos.Equals(positions[3]))
+					{
+						click = true;
+						playerPos(positions[3] + Vector3.right);
+					}
+				}
+				yield return null;
+			}
+		}
+
 		//swaps all green tiles back to grey
 		overlayTilemap.SwapTile(greenOverlay, greyOverlay);
-		
+
 	}
 
 }
