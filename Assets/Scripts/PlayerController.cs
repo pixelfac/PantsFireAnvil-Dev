@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerController : Controller
 {
-	[SerializeField] private GridOverlayBehavior overlay;
 
 	public override IEnumerator Turn(System.Action calllback)
 	{

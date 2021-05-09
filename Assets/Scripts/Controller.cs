@@ -6,6 +6,8 @@ public abstract class Controller : MonoBehaviour
 {
 	[SerializeField] protected GameObject turnIndicator;
 	[SerializeField] protected AudioSource audioManager;
+	[SerializeField] protected GridOverlayBehavior overlay;
+
 	protected string IDtag;
 
 	//target is the object which this object wants to target

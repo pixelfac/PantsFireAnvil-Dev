@@ -20,6 +20,9 @@ public class Pathfinding2D : MonoBehaviour
 
 	public void FindPath(GameObject seeker, Vector3 targetPos)
 	{
+
+		grid.path = null;
+
 		Vector3 seekerPos = seeker.transform.position;
 
 		//get grid coords of seeker and target
@@ -59,9 +62,9 @@ public class Pathfinding2D : MonoBehaviour
 			foreach (Node2D neighbour in grid.GetNeighbors(node))
 			{
 				if (neighbour.obstacle || closedSet.Contains(neighbour) ||
-					(seeker.CompareTag("Pants") && neighbour.worldPosition == GameObject.FindGameObjectWithTag("Pants").transform.position) ||
-					(seeker.CompareTag("Fire") && neighbour.worldPosition == GameObject.FindGameObjectWithTag("Fire").transform.position) ||
-					(seeker.CompareTag("Anvil") && neighbour.worldPosition == GameObject.FindGameObjectWithTag("Anvil").transform.position))
+					(seeker.CompareTag("PantsAI") && neighbour.worldPosition == GameObject.FindGameObjectWithTag("Pants").transform.position) ||
+					(seeker.CompareTag("FireAI") && neighbour.worldPosition == GameObject.FindGameObjectWithTag("Fire").transform.position) ||
+					(seeker.CompareTag("AnvilAI") && neighbour.worldPosition == GameObject.FindGameObjectWithTag("Anvil").transform.position))
 				{
 					continue;
 				}

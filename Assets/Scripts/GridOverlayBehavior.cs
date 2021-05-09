@@ -119,24 +119,9 @@ public class GridOverlayBehavior : MonoBehaviour
 	//waits for player to click on viable spot
 	public IEnumerator waitForClick(System.Action<Vector3> playerPos)
 	{
-
-		Debug.Log("have arrived");
-		Debug.Log(positions[0]);
-		Debug.Log(positions[1]);
-		Debug.Log(positions[2]);
-		Debug.Log(positions[3]);
-
 		if (positions[0] == positions[1] && positions[0] == positions[2] && positions[0] == positions[3])
 		{
-			overlayTilemap.SetTile(overlayTilemap.WorldToCell(pos + Vector3.left), redOverlay);
-			overlayTilemap.SetTile(overlayTilemap.WorldToCell(pos + Vector3.right), redOverlay);
-			overlayTilemap.SetTile(overlayTilemap.WorldToCell(pos + Vector3.up), redOverlay);
-			overlayTilemap.SetTile(overlayTilemap.WorldToCell(pos + Vector3.down), redOverlay);
-			yield return new WaitForSeconds(0.5f);
-			overlayTilemap.SetTile(overlayTilemap.WorldToCell(pos + Vector3.left), greyOverlay);
-			overlayTilemap.SetTile(overlayTilemap.WorldToCell(pos + Vector3.right), greyOverlay);
-			overlayTilemap.SetTile(overlayTilemap.WorldToCell(pos + Vector3.up), greyOverlay);
-			overlayTilemap.SetTile(overlayTilemap.WorldToCell(pos + Vector3.down), greyOverlay);
+			yield return SkipTurn(pos);
 		}
 		else
 		{
@@ -176,6 +161,19 @@ public class GridOverlayBehavior : MonoBehaviour
 		//swaps all green tiles back to grey
 		overlayTilemap.SwapTile(greenOverlay, greyOverlay);
 
+	}
+
+	public IEnumerator SkipTurn(Vector3 pos)
+	{
+		overlayTilemap.SetTile(overlayTilemap.WorldToCell(pos + Vector3.left), redOverlay);
+		overlayTilemap.SetTile(overlayTilemap.WorldToCell(pos + Vector3.right), redOverlay);
+		overlayTilemap.SetTile(overlayTilemap.WorldToCell(pos + Vector3.up), redOverlay);
+		overlayTilemap.SetTile(overlayTilemap.WorldToCell(pos + Vector3.down), redOverlay);
+		yield return new WaitForSeconds(0.5f);
+		overlayTilemap.SetTile(overlayTilemap.WorldToCell(pos + Vector3.left), greyOverlay);
+		overlayTilemap.SetTile(overlayTilemap.WorldToCell(pos + Vector3.right), greyOverlay);
+		overlayTilemap.SetTile(overlayTilemap.WorldToCell(pos + Vector3.up), greyOverlay);
+		overlayTilemap.SetTile(overlayTilemap.WorldToCell(pos + Vector3.down), greyOverlay);
 	}
 
 }

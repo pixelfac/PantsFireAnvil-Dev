@@ -8,8 +8,15 @@ public class EnemyController : Controller
 	{
 		yield return new WaitForSeconds(0.5f);
 		GetComponent<Pathfinding2D>().FindPath(gameObject, target.transform.position);
+		if (GetComponent<Pathfinding2D>().GridOwner.GetComponent<Grid2D>().path == null)
+		{
+			yield return overlay.SkipTurn(transform.position);
+		}
+		else
+		{
 		transform.position = GetComponent<Pathfinding2D>().GridOwner.GetComponent<Grid2D>().path[0].worldPosition;
 		turnIndicator.transform.position = GetComponent<Pathfinding2D>().GridOwner.GetComponent<Grid2D>().path[0].worldPosition + Vector3.up;
+		}
 		yield return new WaitForSeconds(0.5f);
 		if (transform.position.x == target.transform.position.x && transform.position.y == target.transform.position.y) //if crush
 		{
