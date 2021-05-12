@@ -61,10 +61,14 @@ public class Pathfinding2D : MonoBehaviour
 			//adds neighbor nodes to openSet
 			foreach (Node2D neighbour in grid.GetNeighbors(node))
 			{
+				//if true, ignore that node
 				if (neighbour.obstacle || closedSet.Contains(neighbour) ||
 					(seeker.CompareTag("PantsAI") && neighbour.worldPosition == GameObject.FindGameObjectWithTag("Pants").transform.position) ||
 					(seeker.CompareTag("FireAI") && neighbour.worldPosition == GameObject.FindGameObjectWithTag("Fire").transform.position) ||
-					(seeker.CompareTag("AnvilAI") && neighbour.worldPosition == GameObject.FindGameObjectWithTag("Anvil").transform.position))
+					(seeker.CompareTag("AnvilAI") && neighbour.worldPosition == GameObject.FindGameObjectWithTag("Anvil").transform.position) ||
+					(neighbour.worldPosition == GameObject.FindGameObjectWithTag("PantsAI").transform.position) ||
+					(neighbour.worldPosition == GameObject.FindGameObjectWithTag("FireAI").transform.position) ||
+					(neighbour.worldPosition == GameObject.FindGameObjectWithTag("AnvilAI").transform.position))
 				{
 					continue;
 				}
