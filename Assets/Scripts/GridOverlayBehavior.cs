@@ -8,7 +8,6 @@ public class GridOverlayBehavior : MonoBehaviour
 
 	[SerializeField] private Tile greyOverlay, greenOverlay, redOverlay;
 	[SerializeField] private Tilemap overlayTilemap, obstacleTilemap;
-	[SerializeField] private GameObject GridOwner;
 	[SerializeField] private GameObject pants, fire, anvil, pantsAI, fireAI, anvilAI;
 	Vector3Int[] positions;
 	Vector3 pos;
