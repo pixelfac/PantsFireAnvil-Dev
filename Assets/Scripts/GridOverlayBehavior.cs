@@ -165,26 +165,26 @@ public class GridOverlayBehavior : MonoBehaviour
 
 	}
 
-	public IEnumerator SkipTurn(Vector3 pos)
+	public IEnumerator SkipTurn(Vector3 controllerPos)
 	{
 		//puts redOverlay on all adjacent tiles and then removes them 0.5f seconds later
-		if (!obstacleTilemap.HasTile(obstacleTilemap.WorldToCell(pos + Vector3.left)))
-			overlayTilemap.SetTile(overlayTilemap.WorldToCell(pos + Vector3.left), redOverlay);
-		if (!obstacleTilemap.HasTile(obstacleTilemap.WorldToCell(pos + Vector3.right)))
-			overlayTilemap.SetTile(overlayTilemap.WorldToCell(pos + Vector3.right), redOverlay);
-		if (!obstacleTilemap.HasTile(obstacleTilemap.WorldToCell(pos + Vector3.up)))
-			overlayTilemap.SetTile(overlayTilemap.WorldToCell(pos + Vector3.up), redOverlay);
-		if (!obstacleTilemap.HasTile(obstacleTilemap.WorldToCell(pos + Vector3.down)))
-			overlayTilemap.SetTile(overlayTilemap.WorldToCell(pos + Vector3.down), redOverlay);
+		if (!obstacleTilemap.HasTile(obstacleTilemap.WorldToCell(controllerPos + Vector3.left)))
+			overlayTilemap.SetTile(overlayTilemap.WorldToCell(controllerPos + Vector3.left), redOverlay);
+		if (!obstacleTilemap.HasTile(obstacleTilemap.WorldToCell(controllerPos + Vector3.right)))
+			overlayTilemap.SetTile(overlayTilemap.WorldToCell(controllerPos + Vector3.right), redOverlay);
+		if (!obstacleTilemap.HasTile(obstacleTilemap.WorldToCell(controllerPos + Vector3.up)))
+			overlayTilemap.SetTile(overlayTilemap.WorldToCell(controllerPos + Vector3.up), redOverlay);
+		if (!obstacleTilemap.HasTile(obstacleTilemap.WorldToCell(controllerPos + Vector3.down)))
+			overlayTilemap.SetTile(overlayTilemap.WorldToCell(controllerPos + Vector3.down), redOverlay);
 		yield return new WaitForSeconds(0.5f);
-		if (!obstacleTilemap.HasTile(obstacleTilemap.WorldToCell(pos + Vector3.left)))
-			overlayTilemap.SetTile(overlayTilemap.WorldToCell(pos + Vector3.left), greyOverlay);
-		if (!obstacleTilemap.HasTile(obstacleTilemap.WorldToCell(pos + Vector3.right)))
-			overlayTilemap.SetTile(overlayTilemap.WorldToCell(pos + Vector3.right), greyOverlay);
-		if (!obstacleTilemap.HasTile(obstacleTilemap.WorldToCell(pos + Vector3.up)))
-			overlayTilemap.SetTile(overlayTilemap.WorldToCell(pos + Vector3.up), greyOverlay);
-		if (!obstacleTilemap.HasTile(obstacleTilemap.WorldToCell(pos + Vector3.down)))
-			overlayTilemap.SetTile(overlayTilemap.WorldToCell(pos + Vector3.down), greyOverlay);
+		if (!obstacleTilemap.HasTile(obstacleTilemap.WorldToCell(controllerPos + Vector3.left)))
+			overlayTilemap.SetTile(overlayTilemap.WorldToCell(controllerPos + Vector3.left), greyOverlay);
+		if (!obstacleTilemap.HasTile(obstacleTilemap.WorldToCell(controllerPos + Vector3.right)))
+			overlayTilemap.SetTile(overlayTilemap.WorldToCell(controllerPos + Vector3.right), greyOverlay);
+		if (!obstacleTilemap.HasTile(obstacleTilemap.WorldToCell(controllerPos + Vector3.up)))
+			overlayTilemap.SetTile(overlayTilemap.WorldToCell(controllerPos + Vector3.up), greyOverlay);
+		if (!obstacleTilemap.HasTile(obstacleTilemap.WorldToCell(controllerPos + Vector3.down)))
+			overlayTilemap.SetTile(overlayTilemap.WorldToCell(controllerPos + Vector3.down), greyOverlay);
 	}
 
 }
