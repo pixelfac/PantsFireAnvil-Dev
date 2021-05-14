@@ -131,10 +131,7 @@ public class GridOverlayBehavior : MonoBehaviour
 				//if so, ends coroutine and passes out the location of the new playerPos
 				if (Input.GetMouseButtonDown(0))
 				{
-					Debug.Log("mouse detected");
 					Vector3Int pos = Vector3Int.FloorToInt(Camera.main.ScreenToWorldPoint(Input.mousePosition) + new Vector3(-0.5f, 0.5f, 10.0f));
-					Debug.Log(pos);
-					Debug.Log(positions[1]);
 					if (pos.Equals(positions[0]))
 					{
 						click = true;
