@@ -56,7 +56,6 @@ public class GridOverlayBehavior : MonoBehaviour
 		}
 		else if (obj == fire)       //if object making the check is fire, avoid allies + avoid fireAI
 		{
-			Debug.Log("Fire Confirmed");
 
 			//checks and adds upwards tile
 			if (!obstacleTilemap.HasTile(obstacleTilemap.WorldToCell(position + Vector3.up)) && position + Vector3.up != pants.transform.position && position + Vector3.up != fire.transform.position && position + Vector3.up != anvil.transform.position && position + Vector3.up != fireAI.transform.position)
@@ -68,10 +67,8 @@ public class GridOverlayBehavior : MonoBehaviour
 			//checks and adds rightwards tile
 			if (!obstacleTilemap.HasTile(obstacleTilemap.WorldToCell(position + Vector3.right)) && position + Vector3.right != pants.transform.position && position + Vector3.right != fire.transform.position && position + Vector3.right != anvil.transform.position && position + Vector3.right != fireAI.transform.position)
 			{
-				Debug.Log("right is good");
 				overlayTilemap.SetTile(overlayTilemap.WorldToCell(position + Vector3.right), greenOverlay);
 				positions[1] = overlayTilemap.WorldToCell(position + Vector3.right);
-				Debug.Log("pos[1] is set");
 			}
 
 			//checks and adds downwards tile
@@ -124,10 +121,6 @@ public class GridOverlayBehavior : MonoBehaviour
 	//waits for player to click on viable spot
 	public IEnumerator waitForClick(System.Action<Vector3> playerPos)
 	{
-		Debug.Log(positions[0]);
-		Debug.Log(positions[1]);
-		Debug.Log(positions[2]);
-		Debug.Log(positions[3]);
 		if (positions[0] == positions[1] && positions[1] == positions[2] && positions[2] == positions[3])
 		{
 			yield return SkipTurn(pos);
