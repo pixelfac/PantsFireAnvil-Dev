@@ -914,6 +914,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6310383980591165934}
     m_Modifications:
+    - target: {fileID: 6218525766426337632, guid: cd1f914b721c4724f9d58a2c2d67d974,
+        type: 3}
+      propertyPath: redOverlay
+      value: 
+      objectReference: {fileID: 11400000, guid: 4d1cf4b29c4b13643929a1f0615593d4,
+        type: 2}
     - target: {fileID: 6218525766426337633, guid: cd1f914b721c4724f9d58a2c2d67d974,
         type: 3}
       propertyPath: m_LocalPosition.x
