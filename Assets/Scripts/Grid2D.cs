@@ -5,18 +5,21 @@ using UnityEngine.Tilemaps;
 
 public class Grid2D : MonoBehaviour
 {
-	public Vector3 gridWorldSize;
-	public float nodeRadius;
-	public Node2D[,] Grid;
-	public Tilemap obstaclemap;
+	[SerializeField] Vector3 gridWorldSize;
+	[SerializeField] float nodeRadius;
+	Node2D[,] Grid;
 	public List<Node2D> path;
 	Vector3 worldBottomLeft;
+	Tilemap obstaclemap;
 
 	float nodeDiameter;
-	public int gridSizeX, gridSizeY;
+	int gridSizeX, gridSizeY;
 
 	void Awake()
 	{
+		//assign member variables
+		obstaclemap = GameObject.Find("ObstacleMap").GetComponent<Tilemap>();
+
 		nodeDiameter = nodeRadius * 2;
 		gridSizeX = Mathf.RoundToInt(gridWorldSize.x / nodeDiameter);
 		gridSizeY = Mathf.RoundToInt(gridWorldSize.y / nodeDiameter);
