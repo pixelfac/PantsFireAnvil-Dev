@@ -4,8 +4,9 @@ using UnityEngine;
 
 public abstract class Controller : MonoBehaviour
 {
-	[SerializeField] protected AudioSource audioManager;
-	[SerializeField] protected GridOverlayBehavior overlay;
+	protected Transform turnIndicator;
+	protected AudioSource audioManager;
+	protected GridOverlayBehavior overlay;
 
 	protected string IDtag;
 
@@ -15,6 +16,11 @@ public abstract class Controller : MonoBehaviour
 
 	protected void Awake()
 	{
+		//assign member variables
+		turnIndicator = GameObject.Find("TurnIndicator").transform;
+		audioManager = GameObject.Find("AudioManager").GetComponent<AudioSource>();
+		overlay = GameObject.Find("GridOverlayBehavior").GetComponent<GridOverlayBehavior>();
+
 		IDtag = gameObject.tag;
 		target = GameObject.FindGameObjectWithTag(GetTargetTag(IDtag));
 		seeker = GameObject.FindGameObjectWithTag(GetSeekerTag(IDtag));
