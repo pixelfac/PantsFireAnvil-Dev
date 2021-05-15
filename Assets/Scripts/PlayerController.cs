@@ -11,7 +11,7 @@ public class PlayerController : Controller
 		yield return StartCoroutine(overlay.waitForClick(playerPos =>
 		{
 			transform.position = playerPos;
-			turnIndicator.transform.position = playerPos + Vector3.up;
+			turnIndicator.position = playerPos + Vector3.up;
 		}));
 		yield return new WaitForSeconds(0.5f);
 		if (gameObject != null && target != null && transform.position.x == target.transform.position.x && transform.position.y == target.transform.position.y) //if crush

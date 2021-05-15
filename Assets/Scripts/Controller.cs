@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class Controller : MonoBehaviour
 {
-	[SerializeField] protected GameObject turnIndicator;
+	[SerializeField] protected Transform turnIndicator;
 	[SerializeField] protected AudioSource audioManager;
 	[SerializeField] protected GridOverlayBehavior overlay;
 

@@ -15,7 +15,7 @@ public class EnemyController : Controller
 		else
 		{
 		transform.position = GetComponent<Pathfinding2D>().GridOwner.GetComponent<Grid2D>().path[0].worldPosition;
-		turnIndicator.transform.position = GetComponent<Pathfinding2D>().GridOwner.GetComponent<Grid2D>().path[0].worldPosition + Vector3.up;
+		turnIndicator.position = GetComponent<Pathfinding2D>().GridOwner.GetComponent<Grid2D>().path[0].worldPosition + Vector3.up;
 		}
 		yield return new WaitForSeconds(0.5f);
 		if (transform.position.x == target.transform.position.x && transform.position.y == target.transform.position.y) //if crush
