@@ -8797,6 +8797,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6064501647552407325, guid: bffff3fce0f8c2449b216f91dca12230,
+        type: 3}
+      propertyPath: m_Name
+      value: ObstacleMap
+      objectReference: {fileID: 0}
     - target: {fileID: 6064501647624819179, guid: bffff3fce0f8c2449b216f91dca12230,
         type: 3}
       propertyPath: m_Tiles.Array.size
@@ -15714,6 +15719,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6064501647624819183, guid: bffff3fce0f8c2449b216f91dca12230,
+        type: 3}
+      propertyPath: m_Name
+      value: OverlayMap
+      objectReference: {fileID: 0}
     - target: {fileID: 6064501647931544069, guid: bffff3fce0f8c2449b216f91dca12230,
         type: 3}
       propertyPath: m_Tiles.Array.size
@@ -21295,6 +21305,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6064501647931544120, guid: bffff3fce0f8c2449b216f91dca12230,
+        type: 3}
+      propertyPath: m_Name
+      value: GroundMap
       objectReference: {fileID: 0}
     - target: {fileID: 6064501649335637840, guid: bffff3fce0f8c2449b216f91dca12230,
         type: 3}

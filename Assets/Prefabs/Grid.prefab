@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6064501647552407323}
   - component: {fileID: 6064501647552407321}
   m_Layer: 4
-  m_Name: Obstacle Map
+  m_Name: ObstacleMap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -270,7 +270,7 @@ GameObject:
   - component: {fileID: 6064501647624819179}
   - component: {fileID: 6064501647624819180}
   m_Layer: 5
-  m_Name: GridOverlay
+  m_Name: OverlayMap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -453,7 +453,7 @@ GameObject:
   - component: {fileID: 6064501647931544069}
   - component: {fileID: 6064501647931544070}
   m_Layer: 0
-  m_Name: Ground Map
+  m_Name: GroundMap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
