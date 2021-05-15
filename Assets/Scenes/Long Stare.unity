@@ -288,7 +288,7 @@ PrefabInstance:
     - target: {fileID: 7952811726014029918, guid: e9d1989ec830faf4da658951ca6b6058,
         type: 3}
       propertyPath: m_Name
-      value: Anvil AI
+      value: AnvilAI
       objectReference: {fileID: 0}
     - target: {fileID: 7952811726014029919, guid: e9d1989ec830faf4da658951ca6b6058,
         type: 3}
@@ -418,7 +418,7 @@ PrefabInstance:
     - target: {fileID: 6218525766426337639, guid: cd1f914b721c4724f9d58a2c2d67d974,
         type: 3}
       propertyPath: m_Name
-      value: GridOverlayBehaviour
+      value: GridOverlayBehavior
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd1f914b721c4724f9d58a2c2d67d974, type: 3}
@@ -6654,7 +6654,7 @@ PrefabInstance:
     - target: {fileID: 500758168983057593, guid: a64b6fa0a0697c04c8c06d86b1eec091,
         type: 3}
       propertyPath: m_Name
-      value: Pants AI
+      value: PantsAI
       objectReference: {fileID: 0}
     - target: {fileID: 500758168983057595, guid: a64b6fa0a0697c04c8c06d86b1eec091,
         type: 3}
@@ -7169,7 +7169,7 @@ PrefabInstance:
     - target: {fileID: 4621767279977264287, guid: 737ca6bc12bbb7340be1ba8e0a7e5253,
         type: 3}
       propertyPath: m_Name
-      value: Fire AI
+      value: FireAI
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 737ca6bc12bbb7340be1ba8e0a7e5253, type: 3}
