@@ -817,7 +817,7 @@ GameObject:
   - component: {fileID: 4639810700583878635}
   - component: {fileID: 4639810700583878628}
   m_Layer: 5
-  m_Name: Pause Menu
+  m_Name: PauseMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -970,7 +970,7 @@ GameObject:
   - component: {fileID: 4639810700712741310}
   - component: {fileID: 4639810700712741311}
   m_Layer: 5
-  m_Name: Defeat Screen
+  m_Name: DefeatScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1174,7 +1174,7 @@ GameObject:
   - component: {fileID: 4639810700783600402}
   - component: {fileID: 4639810700783600403}
   m_Layer: 5
-  m_Name: Draw Screen
+  m_Name: DrawScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1636,7 +1636,7 @@ GameObject:
   - component: {fileID: 4639810701062240388}
   - component: {fileID: 4639810701062240389}
   m_Layer: 5
-  m_Name: Victory Screen
+  m_Name: VictoryScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
