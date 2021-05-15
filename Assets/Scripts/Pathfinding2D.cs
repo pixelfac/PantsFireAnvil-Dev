@@ -5,18 +5,19 @@ using System.Collections.Generic;
 public class Pathfinding2D : MonoBehaviour
 {
 
-	public Transform seeker, target;
 	Grid2D grid;
 	Node2D seekerNode, targetNode;
-	public GameObject GridOwner;
-
 
 	void Start()
 	{
-		//Instantiate grid
-		grid = GridOwner.GetComponent<Grid2D>();
+		//assign member variables
+		grid = GameObject.Find("GridOwner").GetComponent<Grid2D>();
 	}
 
+	public List<Node2D> GetPath()
+	{
+		return grid.path;
+	}
 
 	public void FindPath(GameObject seeker, Vector3 targetPos)
 	{

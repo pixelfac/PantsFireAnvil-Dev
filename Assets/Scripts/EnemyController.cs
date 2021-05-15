@@ -6,16 +6,19 @@ public class EnemyController : Controller
 {
 	public override IEnumerator Turn(System.Action calllback)
 	{
+		List<Node2D> path = GetComponent<Pathfinding2D>().GetPath();
+
 		yield return new WaitForSeconds(0.5f);
 		GetComponent<Pathfinding2D>().FindPath(gameObject, target.transform.position);
-		if (GetComponent<Pathfinding2D>().GridOwner.GetComponent<Grid2D>().path == null)
+		path = GetComponent<Pathfinding2D>().GetPath();
+		if (path == null)
 		{
 			yield return overlay.SkipTurn(transform.position);
 		}
 		else
 		{
-		transform.position = GetComponent<Pathfinding2D>().GridOwner.GetComponent<Grid2D>().path[0].worldPosition;
-		turnIndicator.position = GetComponent<Pathfinding2D>().GridOwner.GetComponent<Grid2D>().path[0].worldPosition + Vector3.up;
+		transform.position = path[0].worldPosition;
+		turnIndicator.position = path[0].worldPosition + Vector3.up;
 		}
 		yield return new WaitForSeconds(0.5f);
 		if (transform.position.x == target.transform.position.x && transform.position.y == target.transform.position.y) //if crush
