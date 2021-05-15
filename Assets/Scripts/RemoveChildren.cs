@@ -6,7 +6,10 @@ public class RemoveChildren : MonoBehaviour
 {
     void Awake()
     {
+        //unparents all children
+        //then kills itself
         transform.DetachChildren();
+        Destroy(gameObject);
     }
 
 }
