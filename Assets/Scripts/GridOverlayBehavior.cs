@@ -7,10 +7,24 @@ public class GridOverlayBehavior : MonoBehaviour
 {
 
 	[SerializeField] private Tile greyOverlay, greenOverlay, redOverlay;
-	[SerializeField] private Tilemap overlayTilemap, obstacleTilemap;
-	[SerializeField] private GameObject pants, fire, anvil, pantsAI, fireAI, anvilAI;
+	Tilemap overlayTilemap, obstacleTilemap;
+	GameObject pants, fire, anvil, pantsAI, fireAI, anvilAI;
 	Vector3Int[] positions;
 	Vector3 pos;
+
+	private void Awake()
+	{
+		//assign member variables
+		overlayTilemap = GameObject.Find("OverlayMap").GetComponent<Tilemap>();
+		obstacleTilemap = GameObject.Find("ObstacleMap").GetComponent<Tilemap>();
+
+		pants = GameObject.Find("Pants");
+		pantsAI = GameObject.Find("PantsAI");
+		anvil = GameObject.Find("Anvil");
+		anvilAI = GameObject.Find("AnvilAI");
+		fire = GameObject.Find("Fire");
+		fireAI = GameObject.Find("FireAI");
+	}
 
 
 	//overlays in green the tiles that the character can move to
