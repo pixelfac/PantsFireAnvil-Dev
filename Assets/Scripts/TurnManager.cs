@@ -8,13 +8,29 @@ public class TurnManager : MonoBehaviour
 {
 	GameState state;
 
-	[SerializeField] private Vector3 anvilStartLoc, anvilAIStartLoc, pantsStartLoc, pantsAIStartLoc, fireStartLoc, fireAIStartLoc;
+	[SerializeField] Vector3 anvilStartLoc, anvilAIStartLoc, pantsStartLoc, pantsAIStartLoc, fireStartLoc, fireAIStartLoc;
 
 	//character elements
-	[SerializeField] private GameObject anvil, anvilAI, pants, pantsAI, fire, fireAI;
+	GameObject anvil, anvilAI, pants, pantsAI, fire, fireAI;
 	//UI elements
-	[SerializeField] private GameObject victoryScreen, drawScreen, defeatScreen, turnIndicator;
+	GameObject victoryScreen, drawScreen, defeatScreen, turnIndicator;
 
+	void Awake()
+	{
+		//assign member variables
+		pants = GameObject.Find("Pants");
+		pantsAI = GameObject.Find("PantsAI");
+		anvil = GameObject.Find("Anvil");
+		anvilAI = GameObject.Find("AnvilAI");
+		fire = GameObject.Find("Fire");
+		fireAI = GameObject.Find("FireAI");
+
+		victoryScreen = GameObject.Find("Canvas/Menu_SP/VictoryScreen");
+		defeatScreen = GameObject.Find("Canvas/Menu_SP/DefeatScreen");
+		drawScreen = GameObject.Find("Canvas/Menu_SP/DrawScreen");
+
+		turnIndicator = GameObject.Find("TurnIndicator");
+	}
 
 	void Start()
 	{
