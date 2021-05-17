@@ -40,94 +40,15 @@ public class GridOverlayBehavior : MonoBehaviour
 		//if object making the check is pants, avoid allies + avoid pantsAI
 		if (obj == pants)
 		{
-			//checks and adds upwards tile
-			if (!obstacleTilemap.HasTile(obstacleTilemap.WorldToCell(position + Vector3.up)) && position + Vector3.up != pants.transform.position && position + Vector3.up != fire.transform.position && position + Vector3.up != anvil.transform.position && position + Vector3.up != pantsAI.transform.position)
-			{
-				overlayTilemap.SetTile(overlayTilemap.WorldToCell(position + Vector3.up), greenOverlay);
-				positions[0] = overlayTilemap.WorldToCell(position + Vector3.up);
-			}
-
-			//checks and adds rightwards tile
-			if (!obstacleTilemap.HasTile(obstacleTilemap.WorldToCell(position + Vector3.right)) && position + Vector3.right != pants.transform.position && position + Vector3.right != fire.transform.position && position + Vector3.right != anvil.transform.position && position + Vector3.right != pantsAI.transform.position)
-			{
-				overlayTilemap.SetTile(overlayTilemap.WorldToCell(position + Vector3.right), greenOverlay);
-				positions[1] = overlayTilemap.WorldToCell(position + Vector3.right);
-			}
-
-			//checks and adds downwards tile
-			if (!obstacleTilemap.HasTile(obstacleTilemap.WorldToCell(position + Vector3.down)) && position + Vector3.down != pants.transform.position && position + Vector3.down != fire.transform.position && position + Vector3.down != anvil.transform.position && position + Vector3.down != pantsAI.transform.position)
-			{
-				overlayTilemap.SetTile(overlayTilemap.WorldToCell(position + Vector3.down), greenOverlay);
-				positions[2] = overlayTilemap.WorldToCell(position + Vector3.down);
-			}
-
-			//checks and adds leftwards tile
-			if (!obstacleTilemap.HasTile(obstacleTilemap.WorldToCell(position + Vector3.left)) && position + Vector3.left != pants.transform.position && position + Vector3.left != fire.transform.position && position + Vector3.left != anvil.transform.position && position + Vector3.left != pantsAI.transform.position)
-			{
-				overlayTilemap.SetTile(overlayTilemap.WorldToCell(position + Vector3.left), greenOverlay);
-				positions[3] = overlayTilemap.WorldToCell(position + Vector3.left);
-			}
+			AddValidPositions(obj.transform.position, pantsAI);
 		}
 		else if (obj == fire)       //if object making the check is fire, avoid allies + avoid fireAI
 		{
-
-			//checks and adds upwards tile
-			if (!obstacleTilemap.HasTile(obstacleTilemap.WorldToCell(position + Vector3.up)) && position + Vector3.up != pants.transform.position && position + Vector3.up != fire.transform.position && position + Vector3.up != anvil.transform.position && position + Vector3.up != fireAI.transform.position)
-			{
-				overlayTilemap.SetTile(overlayTilemap.WorldToCell(position + Vector3.up), greenOverlay);
-				positions[0] = overlayTilemap.WorldToCell(position + Vector3.up);
-			}
-
-			//checks and adds rightwards tile
-			if (!obstacleTilemap.HasTile(obstacleTilemap.WorldToCell(position + Vector3.right)) && position + Vector3.right != pants.transform.position && position + Vector3.right != fire.transform.position && position + Vector3.right != anvil.transform.position && position + Vector3.right != fireAI.transform.position)
-			{
-				overlayTilemap.SetTile(overlayTilemap.WorldToCell(position + Vector3.right), greenOverlay);
-				positions[1] = overlayTilemap.WorldToCell(position + Vector3.right);
-			}
-
-			//checks and adds downwards tile
-			if (!obstacleTilemap.HasTile(obstacleTilemap.WorldToCell(position + Vector3.down)) && position + Vector3.down != pants.transform.position && position + Vector3.down != fire.transform.position && position + Vector3.down != anvil.transform.position && position + Vector3.down != fireAI.transform.position)
-			{
-				overlayTilemap.SetTile(overlayTilemap.WorldToCell(position + Vector3.down), greenOverlay);
-				positions[2] = overlayTilemap.WorldToCell(position + Vector3.down);
-			}
-
-			//checks and adds leftwards tile
-			if (!obstacleTilemap.HasTile(obstacleTilemap.WorldToCell(position + Vector3.left)) && position + Vector3.left != pants.transform.position && position + Vector3.left != fire.transform.position && position + Vector3.left != anvil.transform.position && position + Vector3.left != fireAI.transform.position)
-			{
-				overlayTilemap.SetTile(overlayTilemap.WorldToCell(position + Vector3.left), greenOverlay);
-				positions[3] = overlayTilemap.WorldToCell(position + Vector3.left);
-			}
+			AddValidPositions(obj.transform.position, fireAI);
 		}
 		else if (obj == anvil)      //if object making the check is anvil, avoid allies + avoid anvilAI
 		{
-			//checks and adds upwards tile
-			if (!obstacleTilemap.HasTile(obstacleTilemap.WorldToCell(position + Vector3.up)) && position + Vector3.up != pants.transform.position && position + Vector3.up != fire.transform.position && position + Vector3.up != anvil.transform.position && position + Vector3.up != anvilAI.transform.position)
-			{
-				overlayTilemap.SetTile(overlayTilemap.WorldToCell(position + Vector3.up), greenOverlay);
-				positions[0] = overlayTilemap.WorldToCell(position + Vector3.up);
-			}
-
-			//checks and adds rightwards tile
-			if (!obstacleTilemap.HasTile(obstacleTilemap.WorldToCell(position + Vector3.right)) && position + Vector3.right != pants.transform.position && position + Vector3.right != fire.transform.position && position + Vector3.right != anvil.transform.position && position + Vector3.right != anvilAI.transform.position)
-			{
-				overlayTilemap.SetTile(overlayTilemap.WorldToCell(position + Vector3.right), greenOverlay);
-				positions[1] = overlayTilemap.WorldToCell(position + Vector3.right);
-			}
-
-			//checks and adds downwards tile
-			if (!obstacleTilemap.HasTile(obstacleTilemap.WorldToCell(position + Vector3.down)) && position + Vector3.down != pants.transform.position && position + Vector3.down != fire.transform.position && position + Vector3.down != anvil.transform.position && position + Vector3.down != anvilAI.transform.position)
-			{
-				overlayTilemap.SetTile(overlayTilemap.WorldToCell(position + Vector3.down), greenOverlay);
-				positions[2] = overlayTilemap.WorldToCell(position + Vector3.down);
-			}
-
-			//checks and adds leftwards tile
-			if (!obstacleTilemap.HasTile(obstacleTilemap.WorldToCell(position + Vector3.left)) && position + Vector3.left != pants.transform.position && position + Vector3.left != fire.transform.position && position + Vector3.left != anvil.transform.position && position + Vector3.left != anvilAI.transform.position)
-			{
-				overlayTilemap.SetTile(overlayTilemap.WorldToCell(position + Vector3.left), greenOverlay);
-				positions[3] = overlayTilemap.WorldToCell(position + Vector3.left);
-			}
+			AddValidPositions(obj.transform.position, anvilAI);
 		}
 
 	}
@@ -179,9 +100,9 @@ public class GridOverlayBehavior : MonoBehaviour
 
 	}
 
+	//puts redOverlay on all adjacent tiles and then removes them 0.5f seconds later
 	public IEnumerator SkipTurn(Vector3 controllerPos)
 	{
-		//puts redOverlay on all adjacent tiles and then removes them 0.5f seconds later
 		if (!obstacleTilemap.HasTile(obstacleTilemap.WorldToCell(controllerPos + Vector3.left)))
 			overlayTilemap.SetTile(overlayTilemap.WorldToCell(controllerPos + Vector3.left), redOverlay);
 		if (!obstacleTilemap.HasTile(obstacleTilemap.WorldToCell(controllerPos + Vector3.right)))
@@ -199,6 +120,44 @@ public class GridOverlayBehavior : MonoBehaviour
 			overlayTilemap.SetTile(overlayTilemap.WorldToCell(controllerPos + Vector3.up), greyOverlay);
 		if (!obstacleTilemap.HasTile(obstacleTilemap.WorldToCell(controllerPos + Vector3.down)))
 			overlayTilemap.SetTile(overlayTilemap.WorldToCell(controllerPos + Vector3.down), greyOverlay);
+	}
+
+	//checks to see of any of the player characters exist at 'pos'
+	bool NoPlayerOverlap(Vector3 pos)
+	{
+		return pos != pants.transform.position && pos != fire.transform.position && pos != anvil.transform.position;
+	}
+
+	//adds all valid moveable tiles to the position array and changes their tile to greenOverlay
+	void AddValidPositions(Vector3 position, GameObject ai)
+	{
+		//checks and adds upwards tile
+		if (!obstacleTilemap.HasTile(obstacleTilemap.WorldToCell(position + Vector3.up)) && NoPlayerOverlap(position + Vector3.up) && position + Vector3.up != ai.transform.position)
+		{
+			overlayTilemap.SetTile(overlayTilemap.WorldToCell(position + Vector3.up), greenOverlay);
+			positions[0] = overlayTilemap.WorldToCell(position + Vector3.up);
+		}
+
+		//checks and adds rightwards tile
+		if (!obstacleTilemap.HasTile(obstacleTilemap.WorldToCell(position + Vector3.right)) && NoPlayerOverlap(position + Vector3.right) && position + Vector3.right != ai.transform.position)
+		{
+			overlayTilemap.SetTile(overlayTilemap.WorldToCell(position + Vector3.right), greenOverlay);
+			positions[1] = overlayTilemap.WorldToCell(position + Vector3.right);
+		}
+
+		//checks and adds downwards tile
+		if (!obstacleTilemap.HasTile(obstacleTilemap.WorldToCell(position + Vector3.down)) && NoPlayerOverlap(position + Vector3.down) && position + Vector3.down != ai.transform.position)
+		{
+			overlayTilemap.SetTile(overlayTilemap.WorldToCell(position + Vector3.down), greenOverlay);
+			positions[2] = overlayTilemap.WorldToCell(position + Vector3.down);
+		}
+
+		//checks and adds leftwards tile
+		if (!obstacleTilemap.HasTile(obstacleTilemap.WorldToCell(position + Vector3.left)) && NoPlayerOverlap(position + Vector3.left) && position + Vector3.left != ai.transform.position)
+		{
+			overlayTilemap.SetTile(overlayTilemap.WorldToCell(position + Vector3.left), greenOverlay);
+			positions[3] = overlayTilemap.WorldToCell(position + Vector3.left);
+		}
 	}
 
 }
