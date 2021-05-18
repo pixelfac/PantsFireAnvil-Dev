@@ -30,6 +30,7 @@ public class Grid2D : MonoBehaviour
 	{
 		Grid = new Node2D[gridSizeX, gridSizeY];
 		worldBottomLeft = transform.position - Vector3.right * gridWorldSize.x / 2 - Vector3.up * gridWorldSize.y / 2;
+		Debug.Log("worldBottomLeft" + worldBottomLeft);
 
 		for (int x = 0; x < gridSizeX; x++)
 		{
@@ -99,7 +100,7 @@ public class Grid2D : MonoBehaviour
 
 	public Node2D NodeFromWorldPoint(Vector3 worldPosition)
 	{
-
+		Debug.Log("worldposition" + worldPosition);
 		int x = Mathf.RoundToInt(worldPosition.x - 1 + (gridSizeX / 2));
 		int y = Mathf.RoundToInt(worldPosition.y + (gridSizeY / 2));
 		return Grid[x, y];
