@@ -6,13 +6,13 @@ using UnityEngine.Tilemaps;
 public class Grid2D : MonoBehaviour
 {
 	[SerializeField] Vector3 gridWorldSize;
-	[SerializeField] float nodeRadius;
 	Node2D[,] Grid;
 	public List<Node2D> path;
 	Vector3 worldBottomLeft;
 	Tilemap obstaclemap;
 
-	float nodeDiameter;
+	float nodeRadius = 0.5f;
+	float nodeDiameter = 1f;
 	int gridSizeX, gridSizeY;
 
 	void Awake()
@@ -20,7 +20,6 @@ public class Grid2D : MonoBehaviour
 		//assign member variables
 		obstaclemap = GameObject.Find("ObstacleMap").GetComponent<Tilemap>();
 
-		nodeDiameter = nodeRadius * 2;
 		gridSizeX = Mathf.RoundToInt(gridWorldSize.x / nodeDiameter);
 		gridSizeY = Mathf.RoundToInt(gridWorldSize.y / nodeDiameter);
 		CreateGrid();
@@ -30,7 +29,6 @@ public class Grid2D : MonoBehaviour
 	{
 		Grid = new Node2D[gridSizeX, gridSizeY];
 		worldBottomLeft = transform.position - Vector3.right * gridWorldSize.x / 2 - Vector3.up * gridWorldSize.y / 2;
-		Debug.Log("worldBottomLeft" + worldBottomLeft);
 
 		for (int x = 0; x < gridSizeX; x++)
 		{
@@ -100,9 +98,8 @@ public class Grid2D : MonoBehaviour
 
 	public Node2D NodeFromWorldPoint(Vector3 worldPosition)
 	{
-		Debug.Log("worldposition" + worldPosition);
-		int x = Mathf.RoundToInt(worldPosition.x - 1 + (gridSizeX / 2));
-		int y = Mathf.RoundToInt(worldPosition.y + (gridSizeY / 2));
+		int x = Mathf.RoundToInt(worldPosition.x+1);
+		int y = Mathf.RoundToInt(worldPosition.y+1);
 		return Grid[x, y];
 	}
 
