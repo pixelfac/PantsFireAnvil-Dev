@@ -640,7 +640,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.4442417, g: 0.48693117, b: 0.6320754, a: 0.3137255}
     m_PressedColor: {r: 0.4442417, g: 0.48693117, b: 0.6320754, a: 0.5882353}
     m_SelectedColor: {r: 0.4431373, g: 0.48627454, b: 0.6313726, a: 0.5882353}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0.44313726, g: 0.4862745, b: 0.6313726, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -654,22 +654,11 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1145507667}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 281398970}
-        m_MethodName: StartMP
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1145507667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1485,7 +1474,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 2100000, guid: 43d59b5c638b0664db55f3a4e4d130ef, type: 2}
-  m_Color: {r: 1, g: 0.9058824, b: 0.25882354, a: 1}
+  m_Color: {r: 1, g: 0.9058824, b: 0.25882354, a: 0.49803922}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
