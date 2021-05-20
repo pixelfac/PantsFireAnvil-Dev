@@ -123,13 +123,13 @@ public class GridOverlayBehavior : MonoBehaviour
 			overlayTilemap.SetTile(overlayTilemap.WorldToCell(controllerPos + Vector3.down), greyOverlay);
 	}
 
-	//checks to see of any of the player characters exist at 'pos'
+	//returns true if no player characters exist at 'pos', false otherwise
 	bool isPlayerNotHere(Vector3 pos)
 	{
 		return pos != pants.transform.position && pos != fire.transform.position && pos != anvil.transform.position;
 	}
 
-	//checks to see of any characters exist at 'pos'
+	//returns true if no characters exist at 'pos', false otherwise
 	bool isCharacterNotHere(Vector3 pos)
 	{
 		return pos != pantsAI.transform.position && pos != fireAI.transform.position && pos != anvilAI.transform.position && isPlayerNotHere(pos);
