@@ -195,9 +195,9 @@ public class GridOverlayBehavior : MonoBehaviour
 		}
 	}
 
-	public Vector3 GetAIMove(Vector3 position)
+	public Vector3 GetAIMove(Vector3 selfPos, Vector3 targetPos)
 	{
-		pos = position;
+		pos = selfPos;
 
 		//set every value to <1,1,1> which serves as a null value since no Vector3 generated
 		//in this 2D game will have a z component and Vector3 is non-nullable.
@@ -211,11 +211,12 @@ public class GridOverlayBehavior : MonoBehaviour
 
 		foreach (Vector3 loc in positions)
 		{
-			if (loc != Vector3.one && Vector3.Distance(pos, loc) < minDist)
+			if (loc != Vector3.one && Vector3.Distance(targetPos, loc) < minDist)
 			{
-				minDist = Vector3.Distance(pos, loc);
+				minDist = Vector3.Distance(targetPos, loc);
 				rtrn = loc;
 			}
+			Debug.Log(minDist);
 		}
 
 

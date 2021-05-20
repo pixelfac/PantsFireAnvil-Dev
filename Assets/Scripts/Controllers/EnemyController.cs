@@ -14,7 +14,7 @@ public class EnemyController : Controller
 
 		if (path == null)
 		{
-			Vector3 targetPos = overlay.GetAIMove(transform.position);
+			Vector3 targetPos = overlay.GetAIMove(transform.position, target.transform.position);
 
 			if (targetPos == Vector3.one)
 				yield return overlay.SkipTurn(transform.position);
