@@ -14,7 +14,15 @@ public class EnemyController : Controller
 
 		if (path == null)
 		{
-			yield return overlay.SkipTurn(transform.position);
+			Vector3 targetPos = overlay.GetAIMove(transform.position);
+
+			if (targetPos == Vector3.one)
+				yield return overlay.SkipTurn(transform.position);
+			else
+			{
+				transform.position = targetPos;
+				turnIndicator.position = targetPos + Vector3.up;
+			}
 		}
 		else
 		{
