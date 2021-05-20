@@ -33,22 +33,22 @@ public class GridOverlayBehavior : MonoBehaviour
 	{
 		pos = position;
 		//set every value to <1,1,1> which serves as a null value since no Vector3 generated
-		//in this 2D game will have a z component.
+		//in this 2D game will have a z component and Vector3 is non-nullable.
 		positions = new Vector3Int[] { Vector3Int.one, Vector3Int.one, Vector3Int.one, Vector3Int.one};
 
 
 		//if object making the check is pants, avoid allies + avoid pantsAI
 		if (obj.CompareTag("Pants"))
 		{
-			AddValidPositions(obj.transform.position, pantsAI);
+			AddValidPlayerPositions(obj.transform.position, pantsAI);
 		}
 		else if (obj.CompareTag("Fire"))       //if object making the check is fire, avoid allies + avoid fireAI
 		{
-			AddValidPositions(obj.transform.position, fireAI);
+			AddValidPlayerPositions(obj.transform.position, fireAI);
 		}
 		else if (obj.CompareTag("Anvil"))      //if object making the check is anvil, avoid allies + avoid anvilAI
 		{
-			AddValidPositions(obj.transform.position, anvilAI);
+			AddValidPlayerPositions(obj.transform.position, anvilAI);
 		}
 
 	}
@@ -56,6 +56,7 @@ public class GridOverlayBehavior : MonoBehaviour
 	//waits for player to click on viable spot
 	public IEnumerator waitForClick(System.Action<Vector3> playerPos)
 	{
+		//If no valid moves
 		if (positions[0] == positions[1] && positions[1] == positions[2] && positions[2] == positions[3])
 		{
 			yield return SkipTurn(pos);
@@ -123,41 +124,102 @@ public class GridOverlayBehavior : MonoBehaviour
 	}
 
 	//checks to see of any of the player characters exist at 'pos'
-	bool NoPlayerOverlap(Vector3 pos)
+	bool isPlayerNotHere(Vector3 pos)
 	{
 		return pos != pants.transform.position && pos != fire.transform.position && pos != anvil.transform.position;
 	}
 
+	//checks to see of any characters exist at 'pos'
+	bool isCharacterNotHere(Vector3 pos)
+	{
+		return pos != pantsAI.transform.position && pos != fireAI.transform.position && pos != anvilAI.transform.position && isPlayerNotHere(pos);
+	}
+
 	//adds all valid moveable tiles to the position array and changes their tile to greenOverlay
-	void AddValidPositions(Vector3 position, GameObject ai)
+	void AddValidPlayerPositions(Vector3 position, GameObject ai)
 	{
 		//checks and adds upwards tile
-		if (!obstacleTilemap.HasTile(obstacleTilemap.WorldToCell(position + Vector3.up)) && NoPlayerOverlap(position + Vector3.up) && position + Vector3.up != ai.transform.position)
+		if (!obstacleTilemap.HasTile(obstacleTilemap.WorldToCell(position + Vector3.up)) && isPlayerNotHere(position + Vector3.up) && position + Vector3.up != ai.transform.position)
 		{
 			overlayTilemap.SetTile(overlayTilemap.WorldToCell(position + Vector3.up), greenOverlay);
 			positions[0] = overlayTilemap.WorldToCell(position + Vector3.up);
 		}
 
 		//checks and adds rightwards tile
-		if (!obstacleTilemap.HasTile(obstacleTilemap.WorldToCell(position + Vector3.right)) && NoPlayerOverlap(position + Vector3.right) && position + Vector3.right != ai.transform.position)
+		if (!obstacleTilemap.HasTile(obstacleTilemap.WorldToCell(position + Vector3.right)) && isPlayerNotHere(position + Vector3.right) && position + Vector3.right != ai.transform.position)
 		{
 			overlayTilemap.SetTile(overlayTilemap.WorldToCell(position + Vector3.right), greenOverlay);
 			positions[1] = overlayTilemap.WorldToCell(position + Vector3.right);
 		}
 
 		//checks and adds downwards tile
-		if (!obstacleTilemap.HasTile(obstacleTilemap.WorldToCell(position + Vector3.down)) && NoPlayerOverlap(position + Vector3.down) && position + Vector3.down != ai.transform.position)
+		if (!obstacleTilemap.HasTile(obstacleTilemap.WorldToCell(position + Vector3.down)) && isPlayerNotHere(position + Vector3.down) && position + Vector3.down != ai.transform.position)
 		{
 			overlayTilemap.SetTile(overlayTilemap.WorldToCell(position + Vector3.down), greenOverlay);
 			positions[2] = overlayTilemap.WorldToCell(position + Vector3.down);
 		}
 
 		//checks and adds leftwards tile
-		if (!obstacleTilemap.HasTile(obstacleTilemap.WorldToCell(position + Vector3.left)) && NoPlayerOverlap(position + Vector3.left) && position + Vector3.left != ai.transform.position)
+		if (!obstacleTilemap.HasTile(obstacleTilemap.WorldToCell(position + Vector3.left)) && isPlayerNotHere(position + Vector3.left) && position + Vector3.left != ai.transform.position)
 		{
 			overlayTilemap.SetTile(overlayTilemap.WorldToCell(position + Vector3.left), greenOverlay);
 			positions[3] = overlayTilemap.WorldToCell(position + Vector3.left);
 		}
+	}
+
+	//adds all valid moveable tiles to the position array
+	void AddValidAIPositions(Vector3 position)
+	{
+		//checks and adds upwards tile
+		if (!obstacleTilemap.HasTile(obstacleTilemap.WorldToCell(position + Vector3.up)) && isPlayerNotHere(position + Vector3.up))
+		{
+			positions[0] = overlayTilemap.WorldToCell(position + Vector3.up);
+		}
+
+		//checks and adds rightwards tile
+		if (!obstacleTilemap.HasTile(obstacleTilemap.WorldToCell(position + Vector3.right)) && isPlayerNotHere(position + Vector3.right))
+		{
+			positions[1] = overlayTilemap.WorldToCell(position + Vector3.right);
+		}
+
+		//checks and adds downwards tile
+		if (!obstacleTilemap.HasTile(obstacleTilemap.WorldToCell(position + Vector3.down)) && isPlayerNotHere(position + Vector3.down))
+		{
+			positions[2] = overlayTilemap.WorldToCell(position + Vector3.down);
+		}
+
+		//checks and adds leftwards tile
+		if (!obstacleTilemap.HasTile(obstacleTilemap.WorldToCell(position + Vector3.left)) && isPlayerNotHere(position + Vector3.left))
+		{
+			positions[3] = overlayTilemap.WorldToCell(position + Vector3.left);
+		}
+	}
+
+	Vector3 GetAIMove(Vector3 position)
+	{
+		pos = position;
+
+		//set every value to <1,1,1> which serves as a null value since no Vector3 generated
+		//in this 2D game will have a z component and Vector3 is non-nullable.
+		positions = new Vector3Int[] { Vector3Int.one, Vector3Int.one, Vector3Int.one, Vector3Int.one };
+
+		//aggregate valid moves to position array
+		AddValidAIPositions(pos);
+
+		float minDist = float.MaxValue;
+		Vector3 rtrn = Vector3.one;
+
+		foreach (Vector3 loc in positions)
+		{
+			if (loc != Vector3.one && Vector3.Distance(pos, loc) < minDist)
+			{
+				minDist = Vector3.Distance(pos, loc);
+				rtrn = loc;
+			}
+		}
+
+
+		return rtrn;
 	}
 
 }
