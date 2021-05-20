@@ -11,16 +11,19 @@ public class EnemyController : Controller
 		yield return new WaitForSeconds(0.5f);
 		GetComponent<Pathfinding2D>().FindPath(gameObject, target.transform.position);
 		path = GetComponent<Pathfinding2D>().GetPath();
+
 		if (path == null)
 		{
 			yield return overlay.SkipTurn(transform.position);
 		}
 		else
 		{
-		transform.position = path[0].worldPosition;
-		turnIndicator.position = path[0].worldPosition + Vector3.up;
+			transform.position = path[0].worldPosition;
+			turnIndicator.position = path[0].worldPosition + Vector3.up;
 		}
+
 		yield return new WaitForSeconds(0.5f);
+
 		if (transform.position.x == target.transform.position.x && transform.position.y == target.transform.position.y) //if crush
 		{
 			target.transform.position = new Vector3(0, 20, 0);
@@ -29,12 +32,14 @@ public class EnemyController : Controller
 			GetComponent<Entity>().SetAlive(false);
 			audioManager.Play();
 		}
+
 		if (transform.position.x == seeker.transform.position.x && transform.position.y == seeker.transform.position.y) //if is crushed
 		{
 			transform.position = new Vector3(0, 20, 0);
 			GetComponent<Entity>().SetAlive(false);
 			audioManager.Play();
 		}
+
 		calllback();
 	}
 }
