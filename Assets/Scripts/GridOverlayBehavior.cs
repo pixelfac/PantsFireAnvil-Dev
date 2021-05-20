@@ -171,31 +171,31 @@ public class GridOverlayBehavior : MonoBehaviour
 	void AddValidAIPositions(Vector3 position)
 	{
 		//checks and adds upwards tile
-		if (!obstacleTilemap.HasTile(obstacleTilemap.WorldToCell(position + Vector3.up)) && isPlayerNotHere(position + Vector3.up))
+		if (!obstacleTilemap.HasTile(obstacleTilemap.WorldToCell(position + Vector3.up)) && isCharacterNotHere(position + Vector3.up))
 		{
 			positions[0] = overlayTilemap.WorldToCell(position + Vector3.up);
 		}
 
 		//checks and adds rightwards tile
-		if (!obstacleTilemap.HasTile(obstacleTilemap.WorldToCell(position + Vector3.right)) && isPlayerNotHere(position + Vector3.right))
+		if (!obstacleTilemap.HasTile(obstacleTilemap.WorldToCell(position + Vector3.right)) && isCharacterNotHere(position + Vector3.right))
 		{
 			positions[1] = overlayTilemap.WorldToCell(position + Vector3.right);
 		}
 
 		//checks and adds downwards tile
-		if (!obstacleTilemap.HasTile(obstacleTilemap.WorldToCell(position + Vector3.down)) && isPlayerNotHere(position + Vector3.down))
+		if (!obstacleTilemap.HasTile(obstacleTilemap.WorldToCell(position + Vector3.down)) && isCharacterNotHere(position + Vector3.down))
 		{
 			positions[2] = overlayTilemap.WorldToCell(position + Vector3.down);
 		}
 
 		//checks and adds leftwards tile
-		if (!obstacleTilemap.HasTile(obstacleTilemap.WorldToCell(position + Vector3.left)) && isPlayerNotHere(position + Vector3.left))
+		if (!obstacleTilemap.HasTile(obstacleTilemap.WorldToCell(position + Vector3.left)) && isCharacterNotHere(position + Vector3.left))
 		{
 			positions[3] = overlayTilemap.WorldToCell(position + Vector3.left);
 		}
 	}
 
-	Vector3 GetAIMove(Vector3 position)
+	public Vector3 GetAIMove(Vector3 position)
 	{
 		pos = position;
 
