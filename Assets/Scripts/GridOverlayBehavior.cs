@@ -38,15 +38,15 @@ public class GridOverlayBehavior : MonoBehaviour
 
 
 		//if object making the check is pants, avoid allies + avoid pantsAI
-		if (obj == pants)
+		if (obj.CompareTag("Pants"))
 		{
 			AddValidPositions(obj.transform.position, pantsAI);
 		}
-		else if (obj == fire)       //if object making the check is fire, avoid allies + avoid fireAI
+		else if (obj.CompareTag("Fire"))       //if object making the check is fire, avoid allies + avoid fireAI
 		{
 			AddValidPositions(obj.transform.position, fireAI);
 		}
-		else if (obj == anvil)      //if object making the check is anvil, avoid allies + avoid anvilAI
+		else if (obj.CompareTag("Anvil"))      //if object making the check is anvil, avoid allies + avoid anvilAI
 		{
 			AddValidPositions(obj.transform.position, anvilAI);
 		}
