@@ -173,25 +173,25 @@ public class GridOverlayBehavior : MonoBehaviour
 		//checks and adds upwards tile
 		if (!obstacleTilemap.HasTile(obstacleTilemap.WorldToCell(position + Vector3.up)) && isCharacterNotHere(position + Vector3.up))
 		{
-			positions[0] = overlayTilemap.WorldToCell(position + Vector3.up);
+			positions[0] = Vector3Int.RoundToInt(position + Vector3.up);
 		}
 
 		//checks and adds rightwards tile
 		if (!obstacleTilemap.HasTile(obstacleTilemap.WorldToCell(position + Vector3.right)) && isCharacterNotHere(position + Vector3.right))
 		{
-			positions[1] = overlayTilemap.WorldToCell(position + Vector3.right);
+			positions[1] = Vector3Int.RoundToInt(position + Vector3.right);
 		}
 
 		//checks and adds downwards tile
 		if (!obstacleTilemap.HasTile(obstacleTilemap.WorldToCell(position + Vector3.down)) && isCharacterNotHere(position + Vector3.down))
 		{
-			positions[2] = overlayTilemap.WorldToCell(position + Vector3.down);
+			positions[2] = Vector3Int.RoundToInt(position + Vector3.down);
 		}
 
 		//checks and adds leftwards tile
 		if (!obstacleTilemap.HasTile(obstacleTilemap.WorldToCell(position + Vector3.left)) && isCharacterNotHere(position + Vector3.left))
 		{
-			positions[3] = overlayTilemap.WorldToCell(position + Vector3.left);
+			positions[3] = Vector3Int.RoundToInt(position + Vector3.left);
 		}
 	}
 
