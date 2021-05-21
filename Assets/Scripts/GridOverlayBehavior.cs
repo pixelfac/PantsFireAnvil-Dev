@@ -216,7 +216,6 @@ public class GridOverlayBehavior : MonoBehaviour
 				minDist = Vector3.Distance(targetPos, loc);
 				rtrn = loc;
 			}
-			Debug.Log(minDist);
 		}
 
 
