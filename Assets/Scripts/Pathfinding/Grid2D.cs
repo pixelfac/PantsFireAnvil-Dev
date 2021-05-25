@@ -98,8 +98,8 @@ public class Grid2D : MonoBehaviour
 
 	public Node2D NodeFromWorldPoint(Vector3 worldPosition)
 	{
-		int x = Mathf.RoundToInt(worldPosition.x+1);
-		int y = Mathf.RoundToInt(worldPosition.y+1);
+		int x = Mathf.RoundToInt(worldPosition.x);
+		int y = Mathf.RoundToInt(worldPosition.y);
 		return Grid[x, y];
 	}
 
