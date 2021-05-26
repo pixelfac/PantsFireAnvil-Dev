@@ -28,7 +28,7 @@ public class Grid2D : MonoBehaviour
 	void CreateGrid()
 	{
 		Grid = new Node2D[gridSizeX, gridSizeY];
-		worldBottomLeft = transform.position - Vector3.right * gridWorldSize.x / 2 - Vector3.up * gridWorldSize.y / 2;
+		worldBottomLeft = transform.position - Vector3.right * 0.5f - Vector3.up * 0.5f;
 
 		for (int x = 0; x < gridSizeX; x++)
 		{
@@ -108,7 +108,8 @@ public class Grid2D : MonoBehaviour
 	//Draws visual representation of grid
 	void OnDrawGizmos()
 	{
-		Gizmos.DrawWireCube(transform.position, new Vector3(gridWorldSize.x, gridWorldSize.y, 1));
+		Vector3 centerOfGrid = transform.position - Vector3.right * 0.5f - Vector3.up * 0.5f + Vector3.right * gridWorldSize.x / 2 + Vector3.up * gridWorldSize.y / 2;
+		Gizmos.DrawWireCube(centerOfGrid, new Vector3(gridWorldSize.x, gridWorldSize.y, 1));
 
 		if (Grid != null)
 		{
