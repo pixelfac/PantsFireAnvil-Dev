@@ -8,7 +8,7 @@ public class TurnManager : MonoBehaviour
 {
 	GameState state;
 
-	[SerializeField] Vector3 anvilStartLoc, anvilAIStartLoc, pantsStartLoc, pantsAIStartLoc, fireStartLoc, fireAIStartLoc;
+	Vector3 anvilStartLoc, anvilAIStartLoc, pantsStartLoc, pantsAIStartLoc, fireStartLoc, fireAIStartLoc;
 
 	//character elements
 	GameObject anvil, anvilAI, pants, pantsAI, fire, fireAI;
@@ -24,6 +24,13 @@ public class TurnManager : MonoBehaviour
 		anvilAI = GameObject.Find("AnvilAI");
 		fire = GameObject.Find("Fire");
 		fireAI = GameObject.Find("FireAI");
+
+		pantsStartLoc = RoundVector3(pants.transform.position);
+		pantsAIStartLoc = RoundVector3(pantsAI.transform.position);
+		fireStartLoc = RoundVector3(fire.transform.position);
+		fireAIStartLoc = RoundVector3(fireAI.transform.position);
+		anvilStartLoc = RoundVector3(anvil.transform.position);
+		anvilAIStartLoc = RoundVector3(anvilAI.transform.position);
 
 		victoryScreen = GameObject.Find("Canvas/Menu_SP/VictoryScreen");
 		defeatScreen = GameObject.Find("Canvas/Menu_SP/DefeatScreen");
@@ -222,5 +229,13 @@ public class TurnManager : MonoBehaviour
 			else return;
 		}
 
+	}
+
+	Vector3 RoundVector3(Vector3 vector)
+	{
+		return new Vector3(
+			Mathf.Round(vector.x),
+			Mathf.Round(vector.y),
+			Mathf.Round(vector.z));
 	}
 }
