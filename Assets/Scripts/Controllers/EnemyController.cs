@@ -6,7 +6,7 @@ public class EnemyController : Controller
 {
 	public override IEnumerator Turn(System.Action calllback)
 	{
-		List<Node2D> path = GetComponent<Pathfinding2D>().GetPath();
+		List<Node2D> path;
 
 		yield return new WaitForSeconds(0.5f);
 		GetComponent<Pathfinding2D>().FindPath(gameObject, target.transform.position);
