@@ -12,9 +12,15 @@ EditorBuildSettings:
     path: Assets/Scenes/Tutorial Box.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/Multiplayer.unity
-    guid: 3107a43538194fb4997bcbdb896d8e6c
-  - enabled: 1
     path: Assets/Scenes/End Screen.unity
     guid: 09c06761679dcbf4186e530f68bdd18e
+  - enabled: 1
+    path: Assets/Scenes/Level Select.unity
+    guid: 7bd0e35ab951c7b44afe4cbe061b4972
+  - enabled: 1
+    path: Assets/Scenes/Long Stare.unity
+    guid: aaf1868a118ac724aaa44539deea0b10
+  - enabled: 1
+    path: Assets/Scenes/Back Alley.unity
+    guid: 552487592ad0dd9499d1805debcc8ad2
   m_configObjects: {}
