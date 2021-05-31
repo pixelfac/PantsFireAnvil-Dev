@@ -4,12 +4,7 @@ public class MenuArrow : MonoBehaviour
 {
 	public void MoveToStartButton()
 	{
-		transform.position = new Vector3(transform.position.x, 2.95f, transform.position.z);
-	}
-
-	public void MoveToMPButton()
-	{
-		transform.position = new Vector3(transform.position.x, 1.2f, transform.position.z);
+		transform.position = new Vector3(transform.position.x, 1.1f, transform.position.z);
 	}
 
 	public void MoveToHowToPlayButton()
