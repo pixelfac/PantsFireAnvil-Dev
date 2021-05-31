@@ -9,9 +9,9 @@ public class Menu_SP : MonoBehaviour
 	public GameObject pauseMenuUI;
 	public bool GamePaused;
 
-	public void TitleScreen()
+	public void ToLevelSelect()
 	{
-		SceneManager.LoadScene(0);
+		SceneManager.LoadScene("Level Select");
 	}
 
 	private void Update()

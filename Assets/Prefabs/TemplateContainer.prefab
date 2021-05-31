@@ -331,6 +331,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6310383980591165934}
     m_Modifications:
+    - target: {fileID: 4639810700019571238, guid: 6c1ac1822ef170b48b5915b4416dc1f0,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ToLevelSelect
+      objectReference: {fileID: 0}
+    - target: {fileID: 4639810700780784833, guid: 6c1ac1822ef170b48b5915b4416dc1f0,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ToLevelSelect
+      objectReference: {fileID: 0}
+    - target: {fileID: 4639810700790096225, guid: 6c1ac1822ef170b48b5915b4416dc1f0,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ToLevelSelect
+      objectReference: {fileID: 0}
+    - target: {fileID: 4639810700880548048, guid: 6c1ac1822ef170b48b5915b4416dc1f0,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ToLevelSelect
+      objectReference: {fileID: 0}
     - target: {fileID: 4639810701194611667, guid: 6c1ac1822ef170b48b5915b4416dc1f0,
         type: 3}
       propertyPath: m_LocalPosition.x
