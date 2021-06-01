@@ -4,6 +4,9 @@ using UnityEngine;
 
 public abstract class Controller : MonoBehaviour
 {
+
+	public bool alive { get; set; }
+
 	protected Transform turnIndicator;
 	protected AudioSource audioManager;
 	protected GridOverlayBehavior overlay;
@@ -16,6 +19,8 @@ public abstract class Controller : MonoBehaviour
 
 	protected void Awake()
 	{
+		alive = true;
+
 		//assign member variables
 		turnIndicator = GameObject.Find("TurnIndicator").transform;
 		audioManager = GameObject.Find("AudioManager").GetComponent<AudioSource>();

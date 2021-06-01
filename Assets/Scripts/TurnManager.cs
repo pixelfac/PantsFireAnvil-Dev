@@ -86,7 +86,7 @@ public class TurnManager : MonoBehaviour
 		{
 			case GameState.PANTS_TURN: //Player Turn
 				state = GameState.PANTSAI_TURN;
-				if (pants.GetComponent<Entity>().IsAlive())
+				if (pants.GetComponent<Controller>().alive)
 				{
 					StartCoroutine(pants.GetComponent<PlayerController>().Turn(NextTurn));
 					turnIndicator.transform.position = pants.transform.position + Vector3.up;
@@ -96,7 +96,7 @@ public class TurnManager : MonoBehaviour
 
 			case GameState.PANTSAI_TURN: //Enemy Turn
 				state = GameState.FIRE_TURN;
-				if (pantsAI.GetComponent<Entity>().IsAlive())
+				if (pantsAI.GetComponent<Controller>().alive)
 				{
 					StartCoroutine(pantsAI.GetComponent<EnemyController>().Turn(NextTurn));
 					turnIndicator.transform.position = pantsAI.transform.position + Vector3.up;
@@ -106,7 +106,7 @@ public class TurnManager : MonoBehaviour
 
 			case GameState.FIRE_TURN: //Player Turn
 				state = GameState.FIREAI_TURN;
-				if (fire.GetComponent<Entity>().IsAlive())
+				if (fire.GetComponent<Controller>().alive)
 				{
 					StartCoroutine(fire.GetComponent<PlayerController>().Turn(NextTurn));
 					turnIndicator.transform.position = fire.transform.position + Vector3.up;
@@ -116,7 +116,7 @@ public class TurnManager : MonoBehaviour
 
 			case GameState.FIREAI_TURN: //Enemy Turn
 				state = GameState.ANVIL_TURN;
-				if (fireAI.GetComponent<Entity>().IsAlive())
+				if (fireAI.GetComponent<Controller>().alive)
 				{
 					StartCoroutine(fireAI.GetComponent<EnemyController>().Turn(NextTurn));
 					turnIndicator.transform.position = fireAI.transform.position + Vector3.up;
@@ -126,7 +126,7 @@ public class TurnManager : MonoBehaviour
 
 			case GameState.ANVIL_TURN: //Player Turn
 				state = GameState.ANVILAI_TURN;
-				if (anvil.GetComponent<Entity>().IsAlive())
+				if (anvil.GetComponent<Controller>().alive)
 				{
 					StartCoroutine(anvil.GetComponent<PlayerController>().Turn(NextTurn));
 					turnIndicator.transform.position = anvil.transform.position + Vector3.up;
@@ -136,7 +136,7 @@ public class TurnManager : MonoBehaviour
 
 			case GameState.ANVILAI_TURN: //Enemy Turn
 				state = GameState.PANTS_TURN;
-				if (anvilAI.GetComponent<Entity>().IsAlive())
+				if (anvilAI.GetComponent<Controller>().alive)
 				{
 					StartCoroutine(anvilAI.GetComponent<EnemyController>().Turn(NextTurn)); ;
 					turnIndicator.transform.position = anvilAI.transform.position + Vector3.up;
@@ -169,32 +169,32 @@ public class TurnManager : MonoBehaviour
 		int winCount = 0;
 		int loseCount = 0;
 		int total = 0;
-		if (pants.GetComponent<Entity>().IsAlive())
+		if (pants.GetComponent<Controller>().alive)
 		{
 			winCount++;
 			total++;
 		}
-		if (pantsAI.GetComponent<Entity>().IsAlive())
+		if (pantsAI.GetComponent<Controller>().alive)
 		{
 			loseCount++;
 			total++;
 		}
-		if (fire.GetComponent<Entity>().IsAlive())
+		if (fire.GetComponent<Controller>().alive)
 		{
 			winCount++;
 			total++;
 		}
-		if (fireAI.GetComponent<Entity>().IsAlive())
+		if (fireAI.GetComponent<Controller>().alive)
 		{
 			loseCount++;
 			total++;
 		}
-		if (anvil.GetComponent<Entity>().IsAlive())
+		if (anvil.GetComponent<Controller>().alive)
 		{
 			winCount++;
 			total++;
 		}
-		if (anvilAI.GetComponent<Entity>().IsAlive())
+		if (anvilAI.GetComponent<Controller>().alive)
 		{
 			loseCount++;
 			total++;
@@ -221,7 +221,7 @@ public class TurnManager : MonoBehaviour
 		if (winCount == 1 && loseCount == 1)
 		{
 
-			if ((pantsAI.GetComponent<Entity>().IsAlive() && pants.GetComponent<Entity>().IsAlive()) || (fireAI.GetComponent<Entity>().IsAlive() && fire.GetComponent<Entity>().IsAlive()) || (anvilAI.GetComponent<Entity>().IsAlive() && anvil.GetComponent<Entity>().IsAlive()))
+			if ((pantsAI.GetComponent<Controller>().alive && pants.GetComponent<Controller>().alive) || (fireAI.GetComponent<Controller>().alive && fire.GetComponent<Controller>().alive) || (anvilAI.GetComponent<Controller>().alive && anvil.GetComponent<Controller>().alive))
 			{
 				state = GameState.TIE;
 				return;

@@ -11,10 +11,9 @@ GameObject:
   - component: {fileID: 7952811726014029917}
   - component: {fileID: 7952811726014029916}
   - component: {fileID: 7952811726014029919}
-  - component: {fileID: 7952811726014029906}
   - component: {fileID: 7952811726014029907}
   m_Layer: 8
-  m_Name: Anvil AI
+  m_Name: AnvilAI
   m_TagString: AnvilAI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -97,22 +96,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44f057b05466fa6428bbba9856ce5014, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seeker: {fileID: 7952811726014029917}
-  target: {fileID: 0}
-  GridOwner: {fileID: 0}
---- !u!114 &7952811726014029906
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7952811726014029918}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9073776eaedc07468f9f5472c821452, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Alive: 1
 --- !u!114 &7952811726014029907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,5 +108,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8845e8086ca9b54d90e7d4b964385e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turnIndicator: {fileID: 0}
-  audioManager: {fileID: 0}
