@@ -14,6 +14,9 @@ public class TurnManager : MonoBehaviour
 	GameObject anvil, anvilAI, pants, pantsAI, fire, fireAI;
 	//UI elements
 	GameObject victoryScreen, drawScreen, defeatScreen, turnIndicator;
+	Menu_SP ui;
+
+	int numTurns = 0;
 
 	void Awake()
 	{
@@ -35,6 +38,7 @@ public class TurnManager : MonoBehaviour
 		victoryScreen = GameObject.Find("Canvas/Menu_SP/VictoryScreen");
 		defeatScreen = GameObject.Find("Canvas/Menu_SP/DefeatScreen");
 		drawScreen = GameObject.Find("Canvas/Menu_SP/DrawScreen");
+		ui = GameObject.Find("Canvas/Menu_SP").GetComponent<Menu_SP>();
 
 		turnIndicator = GameObject.Find("TurnIndicator");
 	}
@@ -80,6 +84,7 @@ public class TurnManager : MonoBehaviour
 	public void NextTurn()
 	{
 		StartCoroutine(Sleep(0.5f));
+		UpdateTurnCounter();
 		checkWinCondition();
 
 		switch (state)
@@ -237,5 +242,14 @@ public class TurnManager : MonoBehaviour
 			Mathf.Round(vector.x),
 			Mathf.Round(vector.y),
 			Mathf.Round(vector.z));
+	}
+
+	void UpdateTurnCounter()
+	{
+		if (state == GameState.PANTS_TURN)
+		{
+			numTurns++;
+			ui.UpdateTurnCounter(numTurns);
+		}
 	}
 }
