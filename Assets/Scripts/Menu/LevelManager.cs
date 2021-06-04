@@ -27,6 +27,11 @@ public class LevelManager : MonoBehaviour
 		SceneManager.LoadScene("Back Alley");
 	}
 
+	public void ToCarousel()
+	{
+		SceneManager.LoadScene("Carousel");
+	}
+
 
 
 
