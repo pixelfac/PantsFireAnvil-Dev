@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
+using UnityEngine.SceneManagement;
 
 public enum GameState { ANVIL_TURN, ANVILAI_TURN, PANTS_TURN, PANTSAI_TURN, FIRE_TURN, FIREAI_TURN, VICTORY, DEFEAT, TIE }
 
@@ -151,16 +152,19 @@ public class TurnManager : MonoBehaviour
 
 			case GameState.VICTORY:
 				victoryScreen.SetActive(true);
+				HighScoreManager.SetScore(SceneManager.GetActiveScene().name, numTurns);
 				Debug.Log("VICTORY");
 				break;
 
 			case GameState.DEFEAT:
 				defeatScreen.SetActive(true);
+				HighScoreManager.SetScore(SceneManager.GetActiveScene().name, numTurns);
 				Debug.Log("DEFEAT");
 				break;
 
 			case GameState.TIE:
 				drawScreen.SetActive(true);
+				HighScoreManager.SetScore(SceneManager.GetActiveScene().name, numTurns);
 				Debug.Log("TIE");
 				break;
 		}
