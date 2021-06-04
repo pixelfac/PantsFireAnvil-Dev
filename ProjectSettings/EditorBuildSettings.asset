@@ -9,11 +9,11 @@ EditorBuildSettings:
     path: Assets/Scenes/Title Screen.unity
     guid: 279a2d4aceef37844969be60e0edd2d7
   - enabled: 1
-    path: Assets/Scenes/Tutorial Box.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
     path: Assets/Scenes/End Screen.unity
     guid: 09c06761679dcbf4186e530f68bdd18e
+  - enabled: 1
+    path: Assets/Scenes/Tutorial Box.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/Scenes/Level Select.unity
     guid: 7bd0e35ab951c7b44afe4cbe061b4972
@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Back Alley.unity
     guid: 552487592ad0dd9499d1805debcc8ad2
+  - enabled: 1
+    path: Assets/Scenes/Carousel.unity
+    guid: 3f9a69195d6d0e04f8d7bd71d05aa72f
   m_configObjects: {}
