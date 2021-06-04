@@ -35,3 +35,5 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+Assets/GameData/highscores.txt
+Assets/GameData/highscores.txt.meta
