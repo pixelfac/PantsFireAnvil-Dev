@@ -152,19 +152,19 @@ public class TurnManager : MonoBehaviour
 
 			case GameState.VICTORY:
 				victoryScreen.SetActive(true);
-				HighScoreManager.SetScore(SceneManager.GetActiveScene().name, numTurns);
+				HighScoreManager.SubmitScore(SceneManager.GetActiveScene().name, numTurns);
 				Debug.Log("VICTORY");
 				break;
 
 			case GameState.DEFEAT:
 				defeatScreen.SetActive(true);
-				HighScoreManager.SetScore(SceneManager.GetActiveScene().name, numTurns);
+				HighScoreManager.SubmitScore(SceneManager.GetActiveScene().name, numTurns);
 				Debug.Log("DEFEAT");
 				break;
 
 			case GameState.TIE:
 				drawScreen.SetActive(true);
-				HighScoreManager.SetScore(SceneManager.GetActiveScene().name, numTurns);
+				HighScoreManager.SubmitScore(SceneManager.GetActiveScene().name, numTurns);
 				Debug.Log("TIE");
 				break;
 		}

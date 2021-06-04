@@ -49,6 +49,12 @@ static class HighScoreManager
 		return false;
 	}
 
+	public static void SubmitScore(string lvlName, int score)
+	{
+		if (score < GetScore(lvlName))
+			SetScore(lvlName, score);
+	}
+
 	public static int GetScore(string lvlName)
 	{
 		for (int i = 0; i < scores.Length; i++)
