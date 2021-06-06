@@ -489,7 +489,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 100
-    m_Alignment: 5
+    m_Alignment: 8
     m_AlignByGeometry: 0
     m_RichText: 0
     m_HorizontalOverflow: 0
@@ -541,7 +541,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -83.7}
+  m_AnchoredPosition: {x: 0, y: -83.75}
   m_SizeDelta: {x: 0, y: -167.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &492381857
@@ -685,7 +685,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 100
-    m_Alignment: 5
+    m_Alignment: 8
     m_AlignByGeometry: 0
     m_RichText: 0
     m_HorizontalOverflow: 0
@@ -734,7 +734,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -70.6}
+  m_AnchoredPosition: {x: 0, y: -70.5}
   m_SizeDelta: {x: 664.3, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &606779633
@@ -916,7 +916,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 100
-    m_Alignment: 5
+    m_Alignment: 8
     m_AlignByGeometry: 0
     m_RichText: 0
     m_HorizontalOverflow: 0
@@ -1220,7 +1220,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 100
-    m_Alignment: 5
+    m_Alignment: 8
     m_AlignByGeometry: 0
     m_RichText: 0
     m_HorizontalOverflow: 0
@@ -1319,6 +1319,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1070445311}
+  - component: {fileID: 1070445312}
   m_Layer: 5
   m_Name: Score Listing
   m_TagString: Untagged
@@ -1350,9 +1351,36 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -5, y: -501.97437}
+  m_AnchoredPosition: {x: -5, y: -502}
   m_SizeDelta: {x: 1066, y: 1012.5}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1070445312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1070445310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e660bbbcb6b00ac49a97a3240a666c67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orderedLevelNames:
+  - Tutorial Box
+  - Long Stare
+  - Back Alley
+  - Carousel
+  scoreTextReferences:
+  - {fileID: 545954044}
+  - {fileID: 145863425}
+  - {fileID: 1534061510}
+  - {fileID: 810897374}
+  - {fileID: 1856215697}
+  - {fileID: 1243311731}
+  - {fileID: 1445254469}
+  - {fileID: 1011758599}
+  listingCharWidth: 45
 --- !u!1 &1137884728
 GameObject:
   m_ObjectHideFlags: 0
@@ -1567,7 +1595,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 100
-    m_Alignment: 5
+    m_Alignment: 8
     m_AlignByGeometry: 0
     m_RichText: 0
     m_HorizontalOverflow: 0
@@ -1795,7 +1823,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -5, y: -75.60003}
+  m_AnchoredPosition: {x: -5, y: -75.5}
   m_SizeDelta: {x: 664.3, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1436168887
@@ -1975,7 +2003,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 100
-    m_Alignment: 5
+    m_Alignment: 8
     m_AlignByGeometry: 0
     m_RichText: 0
     m_HorizontalOverflow: 0
@@ -2052,7 +2080,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 100
-    m_Alignment: 5
+    m_Alignment: 8
     m_AlignByGeometry: 0
     m_RichText: 0
     m_HorizontalOverflow: 0
@@ -2195,7 +2223,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 100
-    m_Alignment: 5
+    m_Alignment: 8
     m_AlignByGeometry: 0
     m_RichText: 0
     m_HorizontalOverflow: 0
