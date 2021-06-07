@@ -39,6 +39,7 @@ static class HighScoreManager
 
     public static bool SetScore(string lvlName, int score)
 	{
+		Debug.Log("score set");
 		for (int i = 0; i < scores.Length; i++)
 		{
 			if (scores[i].LevelName.Equals(lvlName))
@@ -53,7 +54,8 @@ static class HighScoreManager
 
 	public static void SubmitScore(string lvlName, int score)
 	{
-		if (score < GetScore(lvlName))
+		Debug.Log("score submitted");
+		if (GetScore(lvlName) == 0 || score < GetScore(lvlName))
 			SetScore(lvlName, score);
 	}
 
