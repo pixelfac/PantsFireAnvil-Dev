@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+// This class updates the Highscore listing when the user visits the scene
+
 public class Highscore_Listing : MonoBehaviour
 {
 	[SerializeField] string[] orderedLevelNames;
