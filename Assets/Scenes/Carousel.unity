@@ -8921,6 +8921,26 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.96
       objectReference: {fileID: 0}
+    - target: {fileID: 1725186469604645965, guid: 7ae4b7ee65a5dc44b8e3ad34878b0303,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1725186470561736958, guid: 7ae4b7ee65a5dc44b8e3ad34878b0303,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1725186470701293217, guid: 7ae4b7ee65a5dc44b8e3ad34878b0303,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3023735153363371087, guid: 7ae4b7ee65a5dc44b8e3ad34878b0303,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4164964249394585324, guid: 7ae4b7ee65a5dc44b8e3ad34878b0303,
         type: 3}
       propertyPath: m_LocalPosition.x

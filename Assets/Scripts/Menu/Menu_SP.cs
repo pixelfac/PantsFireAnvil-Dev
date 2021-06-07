@@ -16,6 +16,11 @@ public class Menu_SP : MonoBehaviour
 		SceneManager.LoadScene("Level Select");
 	}
 
+	public void Retry()
+	{
+		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+	}
+
 	private void Update()
 	{
 		if (Input.GetKeyDown(KeyCode.Escape))

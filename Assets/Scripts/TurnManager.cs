@@ -36,9 +36,9 @@ public class TurnManager : MonoBehaviour
 		anvilStartLoc = RoundVector3(anvil.transform.position);
 		anvilAIStartLoc = RoundVector3(anvilAI.transform.position);
 
-		victoryScreen = GameObject.Find("Canvas/Menu_SP/VictoryScreen");
-		defeatScreen = GameObject.Find("Canvas/Menu_SP/DefeatScreen");
-		ui = GameObject.Find("Canvas/Menu_SP").GetComponent<Menu_SP>();
+		victoryScreen = GameObject.Find("VictoryScreen");
+		defeatScreen = GameObject.Find("DefeatScreen");
+		ui = GameObject.Find("Canvas").GetComponent<Menu_SP>();
 
 		turnIndicator = GameObject.Find("TurnIndicator");
 	}
