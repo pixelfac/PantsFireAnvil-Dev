@@ -72,8 +72,8 @@ public class TurnManager : MonoBehaviour
 		turnIndicator.transform.position = pantsStartLoc + Vector3.up;
 
 		//turn all endgame UI off
-		victoryScreen.gameObject.SetActive(false);
-		defeatScreen.gameObject.SetActive(false);
+		victoryScreen.SetActive(false);
+		defeatScreen.SetActive(false);
 
 		state = GameState.PANTS_TURN;
 
