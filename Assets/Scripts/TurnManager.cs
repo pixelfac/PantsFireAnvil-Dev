@@ -3,7 +3,7 @@ using UnityEngine;
 using Debug = UnityEngine.Debug;
 using UnityEngine.SceneManagement;
 
-public enum GameState { ANVIL_TURN, ANVILAI_TURN, PANTS_TURN, PANTSAI_TURN, FIRE_TURN, FIREAI_TURN, VICTORY, DEFEAT, TIE }
+public enum GameState { ANVIL_TURN, ANVILAI_TURN, PANTS_TURN, PANTSAI_TURN, FIRE_TURN, FIREAI_TURN, VICTORY, DEFEAT }
 
 public class TurnManager : MonoBehaviour
 {
@@ -161,83 +161,17 @@ public class TurnManager : MonoBehaviour
 				HighScoreManager.SubmitScore(SceneManager.GetActiveScene().name, numTurns);
 				Debug.Log("DEFEAT");
 				break;
-
-			case GameState.TIE:
-				drawScreen.SetActive(true);
-				HighScoreManager.SubmitScore(SceneManager.GetActiveScene().name, numTurns);
-				Debug.Log("TIE");
-				break;
 		}
 	}
 
-
+	//called at the end of every turn method
+	//checks to see if the game has been won or lost
 	public void checkWinCondition()
 	{
-		//called at the end of every turn method
-		//checks to see if the game has been won, lost, or tied
-		int winCount = 0;
-		int loseCount = 0;
-		int total = 0;
-		if (pants.GetComponent<Controller>().alive)
-		{
-			winCount++;
-			total++;
-		}
-		if (pantsAI.GetComponent<Controller>().alive)
-		{
-			loseCount++;
-			total++;
-		}
-		if (fire.GetComponent<Controller>().alive)
-		{
-			winCount++;
-			total++;
-		}
-		if (fireAI.GetComponent<Controller>().alive)
-		{
-			loseCount++;
-			total++;
-		}
-		if (anvil.GetComponent<Controller>().alive)
-		{
-			winCount++;
-			total++;
-		}
-		if (anvilAI.GetComponent<Controller>().alive)
-		{
-			loseCount++;
-			total++;
-		}
-
-		//if all player chars are destroyed, DEFEAT
-		if (winCount == 0)
-		{
+		if (!pants.GetComponent<Controller>().alive || !fire.GetComponent<Controller>().alive || !anvil.GetComponent<Controller>().alive)
 			state = GameState.DEFEAT;
-			return;
-		}
-
-		//if all enemy chars are destroyed, VICTORY
-		if (loseCount == 0 && winCount != 0)
-		{
+		else if (!pantsAI.GetComponent<Controller>().alive && !fireAI.GetComponent<Controller>().alive && !anvilAI.GetComponent<Controller>().alive)
 			state = GameState.VICTORY;
-			return;
-		}
-
-		//if enough players still remain, NO CHANGE
-		if (winCount > 1 && loseCount > 1) return;
-
-		//if only identical chars exist, TIE, otherwise, NO CHANGE
-		if (winCount == 1 && loseCount == 1)
-		{
-
-			if ((pantsAI.GetComponent<Controller>().alive && pants.GetComponent<Controller>().alive) || (fireAI.GetComponent<Controller>().alive && fire.GetComponent<Controller>().alive) || (anvilAI.GetComponent<Controller>().alive && anvil.GetComponent<Controller>().alive))
-			{
-				state = GameState.TIE;
-				return;
-			}
-			else return;
-		}
-
 	}
 
 	Vector3 RoundVector3(Vector3 vector)
