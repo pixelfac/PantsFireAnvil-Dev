@@ -92,7 +92,7 @@ public class TurnManager : MonoBehaviour
 				state = GameState.PANTSAI_TURN;
 				if (pants.GetComponent<Controller>().alive)
 				{
-					StartCoroutine(pants.GetComponent<PlayerController>().Turn(NextTurn));
+					StartCoroutine(pants.GetComponent<Controller>().Turn(NextTurn));
 					turnIndicator.transform.position = pants.transform.position + Vector3.up;
 				}
 				else NextTurn();
@@ -102,7 +102,7 @@ public class TurnManager : MonoBehaviour
 				state = GameState.FIRE_TURN;
 				if (pantsAI.GetComponent<Controller>().alive)
 				{
-					StartCoroutine(pantsAI.GetComponent<EnemyController>().Turn(NextTurn));
+					StartCoroutine(pantsAI.GetComponent<Controller>().Turn(NextTurn));
 					turnIndicator.transform.position = pantsAI.transform.position + Vector3.up;
 				}
 				else NextTurn();
@@ -112,7 +112,7 @@ public class TurnManager : MonoBehaviour
 				state = GameState.FIREAI_TURN;
 				if (fire.GetComponent<Controller>().alive)
 				{
-					StartCoroutine(fire.GetComponent<PlayerController>().Turn(NextTurn));
+					StartCoroutine(fire.GetComponent<Controller>().Turn(NextTurn));
 					turnIndicator.transform.position = fire.transform.position + Vector3.up;
 				}
 				else NextTurn();
@@ -122,7 +122,7 @@ public class TurnManager : MonoBehaviour
 				state = GameState.ANVIL_TURN;
 				if (fireAI.GetComponent<Controller>().alive)
 				{
-					StartCoroutine(fireAI.GetComponent<EnemyController>().Turn(NextTurn));
+					StartCoroutine(fireAI.GetComponent<Controller>().Turn(NextTurn));
 					turnIndicator.transform.position = fireAI.transform.position + Vector3.up;
 				}
 				else NextTurn();
@@ -132,7 +132,7 @@ public class TurnManager : MonoBehaviour
 				state = GameState.ANVILAI_TURN;
 				if (anvil.GetComponent<Controller>().alive)
 				{
-					StartCoroutine(anvil.GetComponent<PlayerController>().Turn(NextTurn));
+					StartCoroutine(anvil.GetComponent<Controller>().Turn(NextTurn));
 					turnIndicator.transform.position = anvil.transform.position + Vector3.up;
 				}
 				else NextTurn();
@@ -142,7 +142,7 @@ public class TurnManager : MonoBehaviour
 				state = GameState.PANTS_TURN;
 				if (anvilAI.GetComponent<Controller>().alive)
 				{
-					StartCoroutine(anvilAI.GetComponent<EnemyController>().Turn(NextTurn)); ;
+					StartCoroutine(anvilAI.GetComponent<Controller>().Turn(NextTurn)); ;
 					turnIndicator.transform.position = anvilAI.transform.position + Vector3.up;
 				}
 				else NextTurn();
