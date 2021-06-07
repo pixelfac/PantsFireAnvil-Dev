@@ -156,7 +156,6 @@ public class TurnManager : MonoBehaviour
 
 			case GameState.DEFEAT:
 				defeatScreen.SetActive(true);
-				HighScoreManager.SubmitScore(SceneManager.GetActiveScene().name, numTurns);
 				Debug.Log("DEFEAT");
 				break;
 		}
