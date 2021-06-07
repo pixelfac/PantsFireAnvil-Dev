@@ -26,6 +26,8 @@ public struct HighScore
 
 static class HighScoreManager
 {
+
+	//Highscores for each Level
     static HighScore[] scores = { 
 							new HighScore("Tutorial Box", 0),
 							new HighScore("Long Stare", 0),
@@ -33,7 +35,7 @@ static class HighScoreManager
 							new HighScore("Carousel", 0),
 	};
 
-	static string path = "Assets/GameData/highscores.txt";
+	static string serializationPath = "Assets/GameData/highscores.txt";
 
     public static bool SetScore(string lvlName, int score)
 	{
@@ -78,7 +80,7 @@ static class HighScoreManager
 			lines[i] = scores[i].ToString();
 		}
 
-		File.WriteAllLines(path, lines);
+		File.WriteAllLines(serializationPath, lines);
 
 		Debug.Log("Scores Saved");
 	}
@@ -86,10 +88,10 @@ static class HighScoreManager
 	//loads scores from file
 	public static bool LoadScores()
 	{
-		if (!File.Exists(path))
+		if (!File.Exists(serializationPath))
 			return false;
 
-		string[] lines = File.ReadAllLines(path);
+		string[] lines = File.ReadAllLines(serializationPath);
 
 		for (int i = 0; i < lines.Length; i++)
 		{
