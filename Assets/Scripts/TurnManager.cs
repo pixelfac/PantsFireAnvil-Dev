@@ -3,7 +3,7 @@ using UnityEngine;
 using Debug = UnityEngine.Debug;
 using UnityEngine.SceneManagement;
 
-public enum GameState { ANVIL_TURN, ANVILAI_TURN, PANTS_TURN, PANTSAI_TURN, FIRE_TURN, FIREAI_TURN, VICTORY, DEFEAT }
+public enum GameState { PANTS_TURN, PANTSAI_TURN, FIRE_TURN, FIREAI_TURN, ANVIL_TURN, ANVILAI_TURN, VICTORY, DEFEAT }
 
 public class TurnManager : MonoBehaviour
 {
@@ -85,7 +85,7 @@ public class TurnManager : MonoBehaviour
 		StartCoroutine(Sleep(0.5f));
 		UpdateTurnCounter();
 		checkWinCondition();
-		TurnTracker.UpdateTurnTracker();
+		TurnTracker.UpdateTurnTracker(state);
 
 		switch (state)
 		{
