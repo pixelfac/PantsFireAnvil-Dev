@@ -37,8 +37,8 @@ public class TurnTracker : MonoBehaviour
 			if (!controllers[i].alive)
 				images[i].color = KillImage(images[i].color);
 		}
-
-		arrow.position = new Vector3(arrow.position.x, images[(int)state].gameObject.GetComponent<RectTransform>().position.y, arrow.position.z);
+		if ((int)state < 6)
+			arrow.position = new Vector3(arrow.position.x, images[(int)state].gameObject.GetComponent<RectTransform>().position.y, arrow.position.z);
 	}
 
 	public static Color KillImage(Color color)
