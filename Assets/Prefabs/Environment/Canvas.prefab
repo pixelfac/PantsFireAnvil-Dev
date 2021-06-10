@@ -1846,6 +1846,7 @@ GameObject:
   - component: {fileID: 8737560042731268077}
   - component: {fileID: 2881751971726990743}
   - component: {fileID: 350781839982735040}
+  - component: {fileID: 4340571271254284133}
   m_Layer: 5
   m_Name: TurnTracker
   m_TagString: Untagged
@@ -1915,6 +1916,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4340571271254284133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4866781717678159608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c2427a119a57534ba0a297af14bc4c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5032111423384416478
 GameObject:
   m_ObjectHideFlags: 0
