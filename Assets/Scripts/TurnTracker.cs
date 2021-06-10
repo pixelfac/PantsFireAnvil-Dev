@@ -9,7 +9,7 @@ public class TurnTracker : MonoBehaviour
 
 	static Image[] images = new Image[6];
 
-
+	static RectTransform arrow;
 
 	private void Awake()
 	{
@@ -26,15 +26,19 @@ public class TurnTracker : MonoBehaviour
 		images[3] = GameObject.Find("FireAIImage").GetComponent<Image>();
 		images[4] = GameObject.Find("AnvilImage").GetComponent<Image>();
 		images[5] = GameObject.Find("AnvilAIImage").GetComponent<Image>();
+
+		arrow = GameObject.Find("arrow").GetComponent<RectTransform>();
 	}
 
-	public static void UpdateTurnTracker()
+	public static void UpdateTurnTracker(GameState state)
 	{
 		for (int i=0; i< controllers.Length; i++)
 		{
 			if (!controllers[i].alive)
 				images[i].color = KillImage(images[i].color);
 		}
+
+		arrow.position = new Vector3(arrow.position.x, images[(int)state].gameObject.GetComponent<RectTransform>().position.y, arrow.position.z);
 	}
 
 	public static Color KillImage(Color color)
