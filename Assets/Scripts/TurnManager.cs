@@ -85,6 +85,7 @@ public class TurnManager : MonoBehaviour
 		StartCoroutine(Sleep(0.5f));
 		UpdateTurnCounter();
 		checkWinCondition();
+		TurnTracker.UpdateTurnTracker();
 
 		switch (state)
 		{
