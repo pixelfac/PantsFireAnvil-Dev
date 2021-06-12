@@ -105,4 +105,11 @@ static class HighScoreManager
 
 		return true;
 	}
+
+	//sets all scores to 0
+	public static void ResetScores()
+	{
+		for (int i = 0; i < scores.Length; i++)
+			scores[i].Score = 0;
+	}
 }
