@@ -33,6 +33,7 @@ public class Menu_SP : MonoBehaviour
 	public void Pause()
 	{
 		pauseMenuUI.SetActive(true);
+		CursorTracker.SetCursorTracker(false);
 		Time.timeScale = 0F;
 		GamePaused = true;
 	}
@@ -40,6 +41,7 @@ public class Menu_SP : MonoBehaviour
 	public void Resume()
 	{
 		pauseMenuUI.SetActive(false);
+		CursorTracker.SetCursorTracker(true);
 		Time.timeScale = 1F;
 		GamePaused = false;
 	}

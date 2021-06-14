@@ -151,12 +151,14 @@ public class TurnManager : MonoBehaviour
 
 			case GameState.VICTORY:
 				victoryScreen.SetActive(true);
+				CursorTracker.SetCursorTracker(false);
 				HighScoreManager.SubmitScore(SceneManager.GetActiveScene().name, numTurns);
 				Debug.Log("VICTORY");
 				break;
 
 			case GameState.DEFEAT:
 				defeatScreen.SetActive(true);
+				CursorTracker.SetCursorTracker(false);
 				Debug.Log("DEFEAT");
 				break;
 		}
