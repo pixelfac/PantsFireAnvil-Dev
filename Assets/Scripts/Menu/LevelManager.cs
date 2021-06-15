@@ -34,6 +34,11 @@ public class LevelManager : MonoBehaviour
 		SceneManager.LoadScene("Carousel");
 	}
 
+	public void ToBean()
+	{
+		SceneManager.LoadScene("Bean");
+	}
+
 
 
 

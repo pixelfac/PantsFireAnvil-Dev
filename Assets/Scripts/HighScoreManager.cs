@@ -33,6 +33,7 @@ static class HighScoreManager
 							new HighScore("Long Stare", 0),
 							new HighScore("Back Alley", 0),
 							new HighScore("Carousel", 0),
+							new HighScore("Bean", 0),
 	};
 
 	static string serializationPath = "Assets/GameData/highscores.txt";
