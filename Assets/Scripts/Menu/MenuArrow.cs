@@ -28,17 +28,12 @@ public class MenuArrow : MonoBehaviour
 	//Calculates the arrows' positions relative to the button and sets their transform.position to there
 	void MoveToButton(RectTransform Rtransform)
 	{
+		//the factor by which to scale the arrows position to match the current resolution
 		float resMultiple = (float)Screen.width / Screen.currentResolution.width;
-
-		Debug.Log("StartButtonPos: " + StartButton.anchoredPosition);
-
-		Debug.Log("width: " + Screen.currentResolution.width);
 
 		float arrowXL = (Rtransform.anchoredPosition.x - Rtransform.rect.width / 2 - arrowSpacing) * resMultiple;
 		float arrowXR = (Rtransform.anchoredPosition.x + Rtransform.rect.width / 2 + arrowSpacing) * resMultiple;
 		float arrowY = (Rtransform.anchoredPosition.y - Rtransform.rect.height * 0.6f) * resMultiple;
-		Debug.Log("arrowX: " + arrowXL);
-		Debug.Log("arrowY: " + arrowY);
 
 		arrowLeft.position = Camera.main.ScreenToWorldPoint(new Vector3(arrowXL, arrowY, 10));
 		arrowRight.position = Camera.main.ScreenToWorldPoint(new Vector3(arrowXR, arrowY, 10));
