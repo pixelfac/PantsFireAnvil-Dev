@@ -39,6 +39,11 @@ public class LevelManager : MonoBehaviour
 		SceneManager.LoadScene("Bean");
 	}
 
+	public void ToShift()
+	{
+		SceneManager.LoadScene("Shift");
+	}
+
 
 
 
