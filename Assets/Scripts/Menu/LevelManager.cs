@@ -44,6 +44,11 @@ public class LevelManager : MonoBehaviour
 		SceneManager.LoadScene("Shift");
 	}
 
+	public void ToHourglass()
+	{
+		SceneManager.LoadScene("Hourglass");
+	}
+
 
 
 
