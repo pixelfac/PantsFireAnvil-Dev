@@ -49,6 +49,12 @@ public class LevelManager : MonoBehaviour
 		SceneManager.LoadScene("Hourglass");
 	}
 
+	public void ToPlus()
+	{
+		SceneManager.LoadScene("Plus");
+	}
+
+
 
 
 

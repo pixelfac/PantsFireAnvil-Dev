@@ -36,6 +36,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/Shift.unity
     guid: aa7c153aea3b454479932c9a0ac21fe8
   - enabled: 1
+    path: Assets/Scenes/Levels/Plus.unity
+    guid: 3ed081ad01703f240b3339af93c074cf
+  - enabled: 1
     path: Assets/Scenes/Levels/Hourglass.unity
     guid: 4109c279d7b07934fbe975cb16f13519
   m_configObjects: {}
