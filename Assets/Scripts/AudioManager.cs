@@ -1,23 +1,13 @@
 ﻿using UnityEngine.Audio;
 using UnityEngine;
 
-public class AudioManager : MonoBehaviour
+public class AudioManager : Singleton<AudioManager>
 {
     public Sound[] sounds;
 
-	public static AudioManager instance;
-
-	void Awake()
+	protected override void Awake()
 	{
-		DontDestroyOnLoad(gameObject);
-
-		if (instance == null)
-			instance = this;
-		else
-		{
-			Destroy(gameObject);
-			return;
-		}
+		base.Awake();
 
 		foreach (Sound s in sounds)
 		{
