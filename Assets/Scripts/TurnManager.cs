@@ -151,6 +151,7 @@ public class TurnManager : MonoBehaviour
 
 			case GameState.VICTORY:
 				victoryScreen.SetActive(true);
+				FindObjectOfType<AudioManager>().Play("Victory");
 				CursorTracker.SetCursorTracker(false);
 				HighScoreManager.SubmitScore(SceneManager.GetActiveScene().name, numTurns);
 				Debug.Log("VICTORY");
@@ -158,6 +159,7 @@ public class TurnManager : MonoBehaviour
 
 			case GameState.DEFEAT:
 				defeatScreen.SetActive(true);
+				FindObjectOfType<AudioManager>().Play("Defeat");
 				CursorTracker.SetCursorTracker(false);
 				Debug.Log("DEFEAT");
 				break;
