@@ -38,14 +38,14 @@ public class EnemyController : Controller
 			target.GetComponent<Controller>().alive = false;
 			transform.position = new Vector3(0, 20, 0);
 			alive = false;
-			audioManager.Play();
+			FindObjectOfType<AudioManager>().Play("Impact");
 		}
 
 		if (transform.position.x == seeker.transform.position.x && transform.position.y == seeker.transform.position.y) //if is crushed
 		{
 			transform.position = new Vector3(0, 20, 0);
 			alive = false;
-			audioManager.Play();
+			FindObjectOfType<AudioManager>().Play("Impact");
 		}
 
 		calllback();

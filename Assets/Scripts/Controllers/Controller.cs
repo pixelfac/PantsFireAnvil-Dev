@@ -8,7 +8,6 @@ public abstract class Controller : MonoBehaviour
 	public bool alive { get; set; }
 
 	protected Transform turnIndicator;
-	protected AudioSource audioManager;
 	protected GridOverlayBehavior overlay;
 
 	protected string IDtag;
@@ -23,7 +22,6 @@ public abstract class Controller : MonoBehaviour
 
 		//assign member variables
 		turnIndicator = GameObject.Find("TurnIndicator").transform;
-		audioManager = GameObject.Find("AudioManager").GetComponent<AudioSource>();
 		overlay = GameObject.Find("GridOverlayBehavior").GetComponent<GridOverlayBehavior>();
 
 		IDtag = gameObject.tag;

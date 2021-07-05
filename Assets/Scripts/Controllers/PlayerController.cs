@@ -18,7 +18,7 @@ public class PlayerController : Controller
 		{
 			target.transform.position = new Vector3(0, 20, 0);
 			target.GetComponent<Controller>().alive = false;
-			audioManager.Play();
+			FindObjectOfType<AudioManager>().Play("Impact");
 		}
 		if (transform.position.x == seeker.transform.position.x && transform.position.y == seeker.transform.position.y) //if is crushed
 		{
@@ -26,7 +26,7 @@ public class PlayerController : Controller
 			alive = false;
 			seeker.transform.position = new Vector3(0, 20, 0);
 			seeker.GetComponent<Controller>().alive = false;
-			audioManager.Play();
+			FindObjectOfType<AudioManager>().Play("Impact");
 
 		}
 		calllback();
