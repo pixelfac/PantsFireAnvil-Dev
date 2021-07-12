@@ -6,9 +6,15 @@ public class MenuArrow : MonoBehaviour
 
 	[SerializeField] Transform arrowLeft, arrowRight;
 
-	[SerializeField] RectTransform StartButton, HighscoreButton, ExitButton;
+	[SerializeField] RectTransform StartButton, HighscoreButton, ExitButton, HowToPlayButton;
 
 	[SerializeField] float arrowSpacing;
+
+	public void Start()
+	{
+		StartButton = GameObject.Find("Start_button").GetComponent<RectTransform>();
+		MoveToButton(StartButton);
+	}
 
 	public void MoveToStartButton()
 	{
@@ -23,6 +29,11 @@ public class MenuArrow : MonoBehaviour
 	public void MoveToExitButton()
 	{
 		MoveToButton(ExitButton);
+	}
+
+	public void MoveToHowToPlayButton()
+	{
+		MoveToButton(HowToPlayButton);
 	}
 
 	//Calculates the arrows' positions relative to the button and sets their transform.position to there
