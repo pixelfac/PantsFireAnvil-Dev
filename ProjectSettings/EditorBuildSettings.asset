@@ -39,6 +39,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/Plus.unity
     guid: 3ed081ad01703f240b3339af93c074cf
   - enabled: 1
+    path: Assets/Scenes/How To Play.unity
+    guid: 22f79347f377acb4583fcb3c98bbe442
+  - enabled: 1
     path: Assets/Scenes/Levels/Hourglass.unity
     guid: 4109c279d7b07934fbe975cb16f13519
   m_configObjects: {}
