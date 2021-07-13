@@ -12,9 +12,16 @@ public class Highscore_Listing : MonoBehaviour
 	[SerializeField] Text[] scoreTextReferences;
 	[SerializeField] int listingCharWidth;
 
-	private void Awake()
+	private void Start()
 	{
-		for (int i=0; i < orderedLevelNames.Length; i++)
+		Debug.Log("Start is called");
+
+		UpdateScoreListing();
+	}
+
+	public void UpdateScoreListing()
+	{
+		for (int i = 0; i < orderedLevelNames.Length; i++)
 		{
 			string scoreAsString = HighScoreManager.GetScore(orderedLevelNames[i]).ToString();
 			scoreTextReferences[i].text = scoreAsString.PadLeft(listingCharWidth, '.');

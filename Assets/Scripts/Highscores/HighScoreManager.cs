@@ -28,7 +28,7 @@ static class HighScoreManager
 {
 
 	//Highscores for each Level
-    static HighScore[] scores = { 
+	static HighScore[] scores = {
 							new HighScore("Tutorial Box", 0),
 							new HighScore("Long Stare", 0),
 							new HighScore("Back Alley", 0),
@@ -41,6 +41,17 @@ static class HighScoreManager
 
 	static string serializationPath = "Assets/GameData/highscores.txt";
 
+	//load scores from file to bring runtime cache up-to-date
+	static HighScoreManager()
+	{
+		LoadScores();
+	}
+
+
+
+
+
+	//Sets the cached data to the new score value
     public static bool SetScore(string lvlName, int score)
 	{
 		Debug.Log("score set");
@@ -49,13 +60,16 @@ static class HighScoreManager
 			if (scores[i].LevelName.Equals(lvlName))
 			{
 				scores[i].Score = score;
+				Debug.Log(scores[i].LevelName + " score: " + scores[i].Score);
 				return true;
 			}
 		}
+		Debug.Log("score not set");
 
 		return false;
 	}
 
+	//checks to see if new value overwrites previous score
 	public static void SubmitScore(string lvlName, int score)
 	{
 		Debug.Log("score submitted");
@@ -95,7 +109,10 @@ static class HighScoreManager
 	public static bool LoadScores()
 	{
 		if (!File.Exists(serializationPath))
+		{
+			Debug.LogWarning("File not Found");
 			return false;
+		}
 
 		string[] lines = File.ReadAllLines(serializationPath);
 
@@ -104,7 +121,6 @@ static class HighScoreManager
 			string[] pair = lines[i].Split(',');
 			scores[i].LevelName = pair[0];
 			scores[i].Score = int.Parse(pair[1]);
-			Debug.Log(scores[i].ToString());
 		}
 
 		return true;
@@ -115,5 +131,7 @@ static class HighScoreManager
 	{
 		for (int i = 0; i < scores.Length; i++)
 			scores[i].Score = 0;
+
+		Debug.Log("Scores reset!");
 	}
 }
