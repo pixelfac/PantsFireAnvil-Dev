@@ -20,23 +20,24 @@ public class LevelManager : MonoBehaviour
 
 	public void Start()
 	{
-		//Disable unavailable level buttons
+		//Disable unavailable levels
+		Debug.Log("Disabling levels");
 
-		//Test lvl2
-		if (HighScoreManager.GetScore("Long Stare") == 0)
+		if (HighScoreManager.GetScore("Tutorial Box") == 0)	//lvl2
 			DisableButton(0);
-		if (HighScoreManager.GetScore("Back Alley") == 0)
+		if (HighScoreManager.GetScore("Long Stare") == 0)	//lvl3
 			DisableButton(1);
-		if (HighScoreManager.GetScore("Carousel") == 0)
+		if (HighScoreManager.GetScore("Back Alley") == 0)   //lvl4
 			DisableButton(2);
-		if (HighScoreManager.GetScore("Bean") == 0)
+		if (HighScoreManager.GetScore("Carousel") == 0)     //lvl5
 			DisableButton(3);
-		if (HighScoreManager.GetScore("Shift") == 0)
+		if (HighScoreManager.GetScore("Bean") == 0)         //lvl6
 			DisableButton(4);
-		if (HighScoreManager.GetScore("Hourglass") == 0)
+		if (HighScoreManager.GetScore("Shift") == 0)        //lvl7
 			DisableButton(5);
-		if (HighScoreManager.GetScore("Plus") == 0)
+		if (HighScoreManager.GetScore("Hourglass") == 0)    //lvl8
 			DisableButton(6);
+		
 
 	}
 
