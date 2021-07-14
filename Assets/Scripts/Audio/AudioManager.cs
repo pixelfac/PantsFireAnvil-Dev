@@ -14,8 +14,15 @@ public class AudioManager : Singleton<AudioManager>
 			s.source = gameObject.AddComponent<AudioSource>();
 			s.source.clip = s.clip;
 			s.source.volume = s.volume;
+			s.source.loop = s.loop;
 		}
 	}
+
+	private void Start()
+	{
+		Play("BGM1");
+	}
+
 
 	public void Play(string name)
 	{

@@ -43,16 +43,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 497088ba49ce071468c5b2b01a954b94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dontDestroyOnLoad: 1
   sounds:
   - name: Impact
     clip: {fileID: 8300000, guid: a1edb02c300f48646a080137fa4b1223, type: 3}
     volume: 1
+    loop: 0
     source: {fileID: 0}
   - name: Victory
     clip: {fileID: 8300000, guid: 6b6799901c3fa0946994be5910ba3188, type: 3}
     volume: 1
+    loop: 0
     source: {fileID: 0}
   - name: Defeat
     clip: {fileID: 8300000, guid: 48984cd7ca8c4254c82124e5c279034e, type: 3}
     volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: BGM1
+    clip: {fileID: 8300000, guid: 333418f079d5cac48a7ccb754daa6e77, type: 3}
+    volume: 1
+    loop: 1
     source: {fileID: 0}
