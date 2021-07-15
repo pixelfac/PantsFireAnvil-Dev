@@ -1,5 +1,6 @@
 ﻿using UnityEngine.Audio;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : Singleton<AudioManager>
 {
@@ -21,10 +22,17 @@ public class AudioManager : Singleton<AudioManager>
 	private void Start()
 	{
 		Play("BGM1");
+		SceneManager.sceneLoaded += RestartBGM;
+	}
+
+	private void RestartBGM(Scene scene, LoadSceneMode mode)
+	{
+		if (!GetSource("BGM1").isPlaying)
+			Play("BGM1");
 	}
 
 
-	public void Play(string name)
+	public AudioSource GetSource(string name)
 	{
 		AudioSource soundToPlay = null;
 		foreach (Sound s in sounds)
@@ -38,11 +46,21 @@ public class AudioManager : Singleton<AudioManager>
 		if (soundToPlay == null)
 		{
 			Debug.LogWarning("Sound \"" + name + "\" not found!");
-			return;
 		}
-		
-		soundToPlay.Play();
 
+		return soundToPlay;
+	}
+
+
+	public void Play(string name)
+	{
+		Debug.Log("notworking");
+		GetSource(name).Play();
+	}
+
+	public void Stop(string name)
+	{
+		GetSource(name).Stop();
 	}
 
 }
