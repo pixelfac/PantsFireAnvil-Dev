@@ -1,10 +1,11 @@
-﻿using UnityEngine.Audio;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class AudioManager : Singleton<AudioManager>
 {
-    public Sound[] sounds;
+	public Sound[] sounds;
+
+	private bool sfxBuffer = true, musicBuffer = true;
 
 	protected override void Awake()
 	{
@@ -54,13 +55,59 @@ public class AudioManager : Singleton<AudioManager>
 
 	public void Play(string name)
 	{
-		Debug.Log("notworking");
 		GetSource(name).Play();
 	}
 
 	public void Stop(string name)
 	{
 		GetSource(name).Stop();
+	}
+
+
+	public void ToggleMusic(bool val)
+	{
+		//the toggle event calls this function on enable for some reason
+		//so audiomanager isn't set up yet. That is why this buffer is needed to avoid NullReferenceExection
+		if (musicBuffer)
+		{
+			musicBuffer = false;
+			return;
+		}
+
+		if (val)
+		{
+			if (GetSource("BGM1").isPlaying)
+				GetSource("BGM1").Pause();
+
+			GetSource("Victory").volume = 0f;
+			GetSource("Defeat").volume = 0f;
+		}
+		else
+		{
+			GetSource("BGM1").UnPause();
+			GetSource("Victory").volume = 1f;
+			GetSource("Defeat").volume = 1f;
+		}
+	}
+
+	public void ToggleSFX(bool val)
+	{
+		//the toggle event calls this function on enable for some reason
+		//so audiomanager isn't set up yet. That is why this buffer is needed to avoid NullReferenceExection
+		if (sfxBuffer)
+		{
+			sfxBuffer = false;
+			return;
+		}
+
+		if (val)
+		{
+			GetSource("Impact").volume = 0f;
+		}
+		else
+		{
+			GetSource("Impact").volume = 1f;
+		}
 	}
 
 }

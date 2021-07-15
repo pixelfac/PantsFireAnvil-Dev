@@ -217,9 +217,9 @@ GameObject:
   - component: {fileID: 7314704309495349743}
   - component: {fileID: 8932854580194627778}
   - component: {fileID: 8043617814289640939}
-  - component: {fileID: 4931849109475398702}
+  - component: {fileID: 8394375127203094852}
   m_Layer: 5
-  m_Name: Retry_Button (2)
+  m_Name: SFX_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -270,7 +270,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5b57115458c3ec94faab5dbad73e3201, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c7344afd00893a44982c11f55ef4376e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -280,7 +280,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &4931849109475398702
+--- !u!114 &8394375127203094852
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -289,7 +289,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 877757116370206451}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -318,14 +318,17 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 8043617814289640939}
-  m_OnClick:
+  toggleTransition: 1
+  graphic: {fileID: 0}
+  m_Group: {fileID: 0}
+  onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1999415224454842672}
-        m_MethodName: Retry
-        m_Mode: 1
+      - m_Target: {fileID: 7284197451732842430}
+        m_MethodName: ToggleSFX
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -334,6 +337,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  m_IsOn: 0
 --- !u!1 &981323548264705016
 GameObject:
   m_ObjectHideFlags: 0
@@ -1571,6 +1575,7 @@ RectTransform:
   - {fileID: 6159346055530750462}
   - {fileID: 8737560042731268077}
   - {fileID: 2400052676014256664}
+  - {fileID: 4605366012178468864}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2036,9 +2041,9 @@ GameObject:
   - component: {fileID: 5966958809176878822}
   - component: {fileID: 8634911799426610055}
   - component: {fileID: 209021123382382142}
-  - component: {fileID: 7835884642825947979}
+  - component: {fileID: 1363640025097511692}
   m_Layer: 5
-  m_Name: Retry_Button (1)
+  m_Name: Music_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2089,7 +2094,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5b57115458c3ec94faab5dbad73e3201, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b3c5f37c356c7b44287b77ec6ae6f060, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2099,7 +2104,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &7835884642825947979
+--- !u!114 &1363640025097511692
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2108,7 +2113,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5494714960479271141}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -2137,14 +2142,17 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 209021123382382142}
-  m_OnClick:
+  toggleTransition: 1
+  graphic: {fileID: 0}
+  m_Group: {fileID: 0}
+  onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1999415224454842672}
-        m_MethodName: Retry
-        m_Mode: 1
+      - m_Target: {fileID: 7284197451732842430}
+        m_MethodName: ToggleMusic
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2153,6 +2161,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  m_IsOn: 0
 --- !u!1 &6638814066184763512
 GameObject:
   m_ObjectHideFlags: 0
@@ -2599,3 +2608,90 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1001 &7729465919222186956
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4639810701194611667}
+    m_Modifications:
+    - target: {fileID: 6101567919290061362, guid: 2c26dccb50515c449903e9ca46ecfde5,
+        type: 3}
+      propertyPath: m_Name
+      value: AudioManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 6101567919290061772, guid: 2c26dccb50515c449903e9ca46ecfde5,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6101567919290061772, guid: 2c26dccb50515c449903e9ca46ecfde5,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6101567919290061772, guid: 2c26dccb50515c449903e9ca46ecfde5,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6101567919290061772, guid: 2c26dccb50515c449903e9ca46ecfde5,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6101567919290061772, guid: 2c26dccb50515c449903e9ca46ecfde5,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6101567919290061772, guid: 2c26dccb50515c449903e9ca46ecfde5,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6101567919290061772, guid: 2c26dccb50515c449903e9ca46ecfde5,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6101567919290061772, guid: 2c26dccb50515c449903e9ca46ecfde5,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6101567919290061772, guid: 2c26dccb50515c449903e9ca46ecfde5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6101567919290061772, guid: 2c26dccb50515c449903e9ca46ecfde5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6101567919290061772, guid: 2c26dccb50515c449903e9ca46ecfde5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2c26dccb50515c449903e9ca46ecfde5, type: 3}
+--- !u!4 &4605366012178468864 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6101567919290061772, guid: 2c26dccb50515c449903e9ca46ecfde5,
+    type: 3}
+  m_PrefabInstance: {fileID: 7729465919222186956}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7284197451732842430 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -8191415846012357518, guid: 2c26dccb50515c449903e9ca46ecfde5,
+    type: 3}
+  m_PrefabInstance: {fileID: 7729465919222186956}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 497088ba49ce071468c5b2b01a954b94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
