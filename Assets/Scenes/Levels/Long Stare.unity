@@ -8667,6 +8667,16 @@ PrefabInstance:
       propertyPath: m_IgnoreReversedGraphics
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2005186981106806781, guid: 7ae4b7ee65a5dc44b8e3ad34878b0303,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2588500478269552220, guid: 7ae4b7ee65a5dc44b8e3ad34878b0303,
+        type: 3}
+      propertyPath: m_IsOn
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3875391246254908975, guid: 7ae4b7ee65a5dc44b8e3ad34878b0303,
         type: 3}
       propertyPath: anvilStartLoc.x
@@ -8725,6 +8735,21 @@ PrefabInstance:
     - target: {fileID: 3875391246254908975, guid: 7ae4b7ee65a5dc44b8e3ad34878b0303,
         type: 3}
       propertyPath: fireStartLoc.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4049394683305212659, guid: 7ae4b7ee65a5dc44b8e3ad34878b0303,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4049394683305212659, guid: 7ae4b7ee65a5dc44b8e3ad34878b0303,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4049394683305212659, guid: 7ae4b7ee65a5dc44b8e3ad34878b0303,
+        type: 3}
+      propertyPath: m_Color.b
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4164964249394585324, guid: 7ae4b7ee65a5dc44b8e3ad34878b0303,
