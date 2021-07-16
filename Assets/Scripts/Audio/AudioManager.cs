@@ -1,11 +1,14 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class AudioManager : Singleton<AudioManager>
 {
 	public Sound[] sounds;
 
-	private bool sfxBuffer = true, musicBuffer = true;
+	private bool sfxBuffer = false, musicBuffer = false;
+
+	private Image sfxImage, musicImage;
 
 	protected override void Awake()
 	{
@@ -18,18 +21,22 @@ public class AudioManager : Singleton<AudioManager>
 			s.source.volume = s.volume;
 			s.source.loop = s.loop;
 		}
+
+		RestartBGM();
 	}
 
 	private void Start()
 	{
 		Play("BGM1");
-		SceneManager.sceneLoaded += RestartBGM;
 	}
 
-	private void RestartBGM(Scene scene, LoadSceneMode mode)
+	private void RestartBGM()
 	{
-		if (!GetSource("BGM1").isPlaying)
+		Debug.Log("restarting bgm");
+		if (!(GetSource("BGM1").isPlaying))
+		{
 			Play("BGM1");
+		}
 	}
 
 
@@ -66,16 +73,18 @@ public class AudioManager : Singleton<AudioManager>
 
 	public void ToggleMusic(bool val)
 	{
-		//the toggle event calls this function on enable for some reason
-		//so audiomanager isn't set up yet. That is why this buffer is needed to avoid NullReferenceExection
-		if (musicBuffer)
+		//I need to get the image, but only when the button is on screen
+		//this bit of code runs only once on the first func call
+		if (!musicBuffer)
 		{
-			musicBuffer = false;
-			return;
+			musicImage = GameObject.Find("Music_Button").GetComponent<Image>();
+			musicBuffer = true;
 		}
 
 		if (val)
 		{
+			musicImage.color = new Color(0.5f, 0.5f, 0.5f);
+
 			if (GetSource("BGM1").isPlaying)
 				GetSource("BGM1").Pause();
 
@@ -84,6 +93,7 @@ public class AudioManager : Singleton<AudioManager>
 		}
 		else
 		{
+			musicImage.color = new Color(1f,1f,1f);
 			GetSource("BGM1").UnPause();
 			GetSource("Victory").volume = 1f;
 			GetSource("Defeat").volume = 1f;
@@ -92,20 +102,22 @@ public class AudioManager : Singleton<AudioManager>
 
 	public void ToggleSFX(bool val)
 	{
-		//the toggle event calls this function on enable for some reason
-		//so audiomanager isn't set up yet. That is why this buffer is needed to avoid NullReferenceExection
-		if (sfxBuffer)
+		//I need to get the image, but only when the button is on screen
+		//this bit of code runs only once on the first func call
+		if (!sfxBuffer)
 		{
-			sfxBuffer = false;
-			return;
+			sfxImage = GameObject.Find("SFX_Button").GetComponent<Image>();
+			sfxBuffer = true;
 		}
 
 		if (val)
 		{
+			sfxImage.color = new Color(0.5f, 0.5f, 0.5f);
 			GetSource("Impact").volume = 0f;
 		}
 		else
 		{
+			sfxImage.color = new Color(1f,1f,1f);
 			GetSource("Impact").volume = 1f;
 		}
 	}
