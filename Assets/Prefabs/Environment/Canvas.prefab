@@ -218,6 +218,7 @@ GameObject:
   - component: {fileID: 8932854580194627778}
   - component: {fileID: 8043617814289640939}
   - component: {fileID: 8394375127203094852}
+  - component: {fileID: 9081418499541422663}
   m_Layer: 5
   m_Name: SFX_Button
   m_TagString: Untagged
@@ -326,8 +327,8 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7284197451732842430}
-        m_MethodName: ToggleSFX
+      - m_Target: {fileID: 9081418499541422663}
+        m_MethodName: main
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -338,6 +339,18 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   m_IsOn: 0
+--- !u!114 &9081418499541422663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 877757116370206451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ece5451db23389e4491594d0b778fabc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &981323548264705016
 GameObject:
   m_ObjectHideFlags: 0
@@ -2042,6 +2055,7 @@ GameObject:
   - component: {fileID: 8634911799426610055}
   - component: {fileID: 209021123382382142}
   - component: {fileID: 1363640025097511692}
+  - component: {fileID: 6032888772191411987}
   m_Layer: 5
   m_Name: Music_Button
   m_TagString: Untagged
@@ -2150,8 +2164,8 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7284197451732842430}
-        m_MethodName: ToggleMusic
+      - m_Target: {fileID: 6032888772191411987}
+        m_MethodName: main
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2162,6 +2176,18 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   m_IsOn: 0
+--- !u!114 &6032888772191411987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5494714960479271141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fa58f1171352364a898be8c83788d12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6638814066184763512
 GameObject:
   m_ObjectHideFlags: 0
@@ -2683,15 +2709,3 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7729465919222186956}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7284197451732842430 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: -8191415846012357518, guid: 2c26dccb50515c449903e9ca46ecfde5,
-    type: 3}
-  m_PrefabInstance: {fileID: 7729465919222186956}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 497088ba49ce071468c5b2b01a954b94, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

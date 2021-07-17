@@ -121,6 +121,30 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &284267066 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 300576330235676683, guid: 7ae4b7ee65a5dc44b8e3ad34878b0303,
+    type: 3}
+  m_PrefabInstance: {fileID: 994742553}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fa58f1171352364a898be8c83788d12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &327187920 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2996392150556214623, guid: 7ae4b7ee65a5dc44b8e3ad34878b0303,
+    type: 3}
+  m_PrefabInstance: {fileID: 994742553}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ece5451db23389e4491594d0b778fabc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &563375260
 GameObject:
   m_ObjectHideFlags: 0
@@ -8667,15 +8691,15 @@ PrefabInstance:
       propertyPath: m_IgnoreReversedGraphics
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2005186981106806781, guid: 7ae4b7ee65a5dc44b8e3ad34878b0303,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2588500478269552220, guid: 7ae4b7ee65a5dc44b8e3ad34878b0303,
         type: 3}
-      propertyPath: m_IsOn
-      value: 0
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 327187920}
+    - target: {fileID: 2588500478269552220, guid: 7ae4b7ee65a5dc44b8e3ad34878b0303,
+        type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: main
       objectReference: {fileID: 0}
     - target: {fileID: 3875391246254908975, guid: 7ae4b7ee65a5dc44b8e3ad34878b0303,
         type: 3}
@@ -8737,21 +8761,6 @@ PrefabInstance:
       propertyPath: fireStartLoc.y
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4049394683305212659, guid: 7ae4b7ee65a5dc44b8e3ad34878b0303,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4049394683305212659, guid: 7ae4b7ee65a5dc44b8e3ad34878b0303,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4049394683305212659, guid: 7ae4b7ee65a5dc44b8e3ad34878b0303,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4164964249394585324, guid: 7ae4b7ee65a5dc44b8e3ad34878b0303,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8766,6 +8775,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5007549422931735572, guid: 7ae4b7ee65a5dc44b8e3ad34878b0303,
+        type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 284267066}
+    - target: {fileID: 5007549422931735572, guid: 7ae4b7ee65a5dc44b8e3ad34878b0303,
+        type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: main
       objectReference: {fileID: 0}
     - target: {fileID: 5864232267066072151, guid: 7ae4b7ee65a5dc44b8e3ad34878b0303,
         type: 3}
