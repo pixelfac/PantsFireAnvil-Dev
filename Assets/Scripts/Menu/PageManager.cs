@@ -6,7 +6,7 @@ using UnityEngine.UI;
 //Managers the different Canvas Pages in How To Play
 public class PageManager : MonoBehaviour
 {
-    [SerializeField] Canvas[] pages;
+    [SerializeField] GameObject[] pages;
 
     int currentPageIndex;
 
@@ -25,12 +25,12 @@ public class PageManager : MonoBehaviour
 		{
             if (i == pageIndex)
 			{
-                pages[i].enabled = true;
+                pages[i].SetActive(true);
                 Debug.Log("enable page " + i);
 			}
             else
 			{
-                pages[i].enabled = false;
+                pages[i].SetActive(false);
                 Debug.Log("disable page " + i);
 			}
 		}
