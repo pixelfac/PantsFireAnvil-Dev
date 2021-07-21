@@ -9140,16 +9140,6 @@ PrefabInstance:
       propertyPath: gridWorldSize.y
       value: 8
       objectReference: {fileID: 0}
-    - target: {fileID: 6370858856179413327, guid: 7ae4b7ee65a5dc44b8e3ad34878b0303,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6370858856179413327, guid: 7ae4b7ee65a5dc44b8e3ad34878b0303,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8101555754301115606, guid: 7ae4b7ee65a5dc44b8e3ad34878b0303,
         type: 3}
       propertyPath: m_LocalPosition.x
