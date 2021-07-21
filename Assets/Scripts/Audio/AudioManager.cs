@@ -23,6 +23,17 @@ public class AudioManager : Singleton<AudioManager>
 	private void RestartBGM(Scene scene, LoadSceneMode mode)
 	{
 		Debug.Log("restarting bgm");
+
+		if (GetSource("Victory").isPlaying)
+		{
+			Stop("Victory");
+		}
+
+		if (GetSource("Defeat").isPlaying)
+		{
+			Stop("Defeat");
+		}
+
 		if (!(GetSource("BGM1").isPlaying))
 		{
 			Play("BGM1");
