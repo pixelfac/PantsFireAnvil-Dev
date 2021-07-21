@@ -716,101 +716,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6310383980591165934}
     m_Modifications:
-    - target: {fileID: 1363640025097511692, guid: 6c1ac1822ef170b48b5915b4416dc1f0,
-        type: 3}
-      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 3640129191772987558}
-    - target: {fileID: 1363640025097511692, guid: 6c1ac1822ef170b48b5915b4416dc1f0,
-        type: 3}
-      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ToggleMusic
-      objectReference: {fileID: 0}
-    - target: {fileID: 4639810699628350293, guid: 6c1ac1822ef170b48b5915b4416dc1f0,
-        type: 3}
-      propertyPath: m_Text
-      value: Level Select
-      objectReference: {fileID: 0}
-    - target: {fileID: 4639810699628350293, guid: 6c1ac1822ef170b48b5915b4416dc1f0,
-        type: 3}
-      propertyPath: m_FontData.m_FontSize
-      value: 36
-      objectReference: {fileID: 0}
-    - target: {fileID: 4639810700019571232, guid: 6c1ac1822ef170b48b5915b4416dc1f0,
-        type: 3}
-      propertyPath: m_Name
-      value: LvlSlctBtn
-      objectReference: {fileID: 0}
-    - target: {fileID: 4639810700019571238, guid: 6c1ac1822ef170b48b5915b4416dc1f0,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ToLevelSelect
-      objectReference: {fileID: 0}
-    - target: {fileID: 4639810700418167141, guid: 6c1ac1822ef170b48b5915b4416dc1f0,
-        type: 3}
-      propertyPath: m_Text
-      value: Level Select
-      objectReference: {fileID: 0}
-    - target: {fileID: 4639810700418167141, guid: 6c1ac1822ef170b48b5915b4416dc1f0,
-        type: 3}
-      propertyPath: m_FontData.m_FontSize
-      value: 36
-      objectReference: {fileID: 0}
-    - target: {fileID: 4639810700554252944, guid: 6c1ac1822ef170b48b5915b4416dc1f0,
-        type: 3}
-      propertyPath: m_Text
-      value: Level Select
-      objectReference: {fileID: 0}
-    - target: {fileID: 4639810700554252944, guid: 6c1ac1822ef170b48b5915b4416dc1f0,
-        type: 3}
-      propertyPath: m_FontData.m_FontSize
-      value: 36
-      objectReference: {fileID: 0}
-    - target: {fileID: 4639810700637501632, guid: 6c1ac1822ef170b48b5915b4416dc1f0,
-        type: 3}
-      propertyPath: m_Text
-      value: Level Select
-      objectReference: {fileID: 0}
-    - target: {fileID: 4639810700637501632, guid: 6c1ac1822ef170b48b5915b4416dc1f0,
-        type: 3}
-      propertyPath: m_FontData.m_FontSize
-      value: 36
-      objectReference: {fileID: 0}
-    - target: {fileID: 4639810700780784833, guid: 6c1ac1822ef170b48b5915b4416dc1f0,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ToLevelSelect
-      objectReference: {fileID: 0}
-    - target: {fileID: 4639810700780784835, guid: 6c1ac1822ef170b48b5915b4416dc1f0,
-        type: 3}
-      propertyPath: m_Name
-      value: LvlSlctBtn
-      objectReference: {fileID: 0}
-    - target: {fileID: 4639810700790096225, guid: 6c1ac1822ef170b48b5915b4416dc1f0,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ToLevelSelect
-      objectReference: {fileID: 0}
-    - target: {fileID: 4639810700790096227, guid: 6c1ac1822ef170b48b5915b4416dc1f0,
-        type: 3}
-      propertyPath: m_Name
-      value: LvlSlctBtn
-      objectReference: {fileID: 0}
-    - target: {fileID: 4639810700880548048, guid: 6c1ac1822ef170b48b5915b4416dc1f0,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ToLevelSelect
-      objectReference: {fileID: 0}
-    - target: {fileID: 4639810700880548050, guid: 6c1ac1822ef170b48b5915b4416dc1f0,
-        type: 3}
-      propertyPath: m_Name
-      value: LvlSlctBtn
-      objectReference: {fileID: 0}
-    - target: {fileID: 4639810701062240391, guid: 6c1ac1822ef170b48b5915b4416dc1f0,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4639810701194611667, guid: 6c1ac1822ef170b48b5915b4416dc1f0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -921,16 +826,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
-    - target: {fileID: 8394375127203094852, guid: 6c1ac1822ef170b48b5915b4416dc1f0,
-        type: 3}
-      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 3640129191772987558}
-    - target: {fileID: 8394375127203094852, guid: 6c1ac1822ef170b48b5915b4416dc1f0,
-        type: 3}
-      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ToggleSFX
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c1ac1822ef170b48b5915b4416dc1f0, type: 3}
 --- !u!224 &1725186471041506507 stripped
@@ -939,18 +834,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 6310383978931017496}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3640129191772987558 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7284197451732842430, guid: 6c1ac1822ef170b48b5915b4416dc1f0,
-    type: 3}
-  m_PrefabInstance: {fileID: 6310383978931017496}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 497088ba49ce071468c5b2b01a954b94, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &6310383979027982572
 PrefabInstance:
   m_ObjectHideFlags: 0
