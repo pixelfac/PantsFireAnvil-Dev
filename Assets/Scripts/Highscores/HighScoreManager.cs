@@ -27,6 +27,8 @@ public struct HighScore
 static class HighScoreManager
 {
 
+
+
 	//Highscores for each Level
 	static HighScore[] scores = {
 							new HighScore("Tutorial Box", 0),
@@ -39,12 +41,23 @@ static class HighScoreManager
 							new HighScore("Plus", 0)
 	};
 
-	static string serializationPath = "Assets/GameData/highscores.txt";
+	static string serializationPath = Application.streamingAssetsPath + "/GameData/highscores.txt";
 
 	//load scores from file to bring runtime cache up-to-date
 	static HighScoreManager()
 	{
-		LoadScores();
+		Directory.CreateDirectory(Application.streamingAssetsPath + "/GameData/");
+
+		//if file does not exist, create it and load empty scores
+		//else load scores from previous sessions
+		if (!File.Exists(serializationPath))
+		{
+			SaveScores();
+		}
+		else
+		{
+			LoadScores();
+		}
 	}
 
 
